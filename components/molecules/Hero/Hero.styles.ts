@@ -55,10 +55,11 @@ export const StyledScrollBottom = styled.div`
   align-items: center;
   text-transform: uppercase;
   font-weight: 700;
-  position: absolute;
   left: 50%;
-  bottom: 30px;
+  bottom: 40px;
+  position: absolute;
   transform: translateX(-50%);
+  cursor: pointer;
 
   svg {
     font-size: 2.8rem;
