@@ -18,6 +18,7 @@ export const StyledWrapper = styled.nav`
   padding: 16px 16px 16px 48px;
   height: 70px;
   max-width: 1440px;
+  z-index: 999999999;
 `;
 
 export const StyledInnerWrapper = styled.div`

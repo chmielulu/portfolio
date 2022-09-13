@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Raleway', sans-serif;
     background: ${({ theme }) => theme.background};
     background: repeat-y url("background.jpg");
-    background-size: cover;
+    background-size: contain;
     color: ${({ theme }) => theme.foreground};
   }
   

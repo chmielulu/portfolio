@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Navigation from "../components/molecules/Navigation/Navigation";
 import Hero from "../components/molecules/Hero/Hero";
+import AboutMe from "../components/molecules/AboutMe/AboutMe";
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
       <header>
         <Navigation />
         <Hero />
+        <AboutMe />
       </header>
     </>
   );
