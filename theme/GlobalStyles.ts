@@ -23,4 +23,8 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+  
+  p {
+    line-height: 2;
+  }
 `;
