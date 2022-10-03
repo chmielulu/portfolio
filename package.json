@@ -10,20 +10,26 @@
   },
   "dependencies": {
     "@iconify/react": "^4.0.0",
+    "@react-three/fiber": "^8.8.8",
     "gsap": "^3.11.1",
+    "locomotive-scroll": "^4.1.4",
     "next": "12.3.0",
     "polished": "^4.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-locomotive-scroll": "^0.2.2",
+    "react-three-fiber": "^6.0.13",
     "react-use": "^17.4.0",
     "styled-components": "^5.3.5",
-    "styled-normalize": "^8.0.7"
+    "styled-normalize": "^8.0.7",
+    "three": "^0.145.0"
   },
   "devDependencies": {
     "@types/node": "18.7.16",
     "@types/react": "18.0.19",
     "@types/react-dom": "18.0.6",
     "@types/styled-components": "^5.1.26",
+    "@types/three": "^0.144.0",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.0",
     "prettier": "^2.7.1",

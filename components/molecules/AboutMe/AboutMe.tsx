@@ -10,7 +10,7 @@ import secondImage from "../../../assets/images/about_me_2.png";
 import Image from "next/image";
 
 const AboutMe: FC<Props> = () => (
-  <StyledWrapper>
+  <StyledWrapper data-scroll-section id="about-me">
     <SectionHeadline headline="Kim jestem?" subHeadline="O mnie" />
     <StyledImagesWrapper>
       <Image src={firstImage} alt="" />

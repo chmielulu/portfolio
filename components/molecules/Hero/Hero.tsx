@@ -12,9 +12,11 @@ import {
 import imgSrc from "../../../assets/images/me.png";
 import Image from "next/image";
 import { gsap } from "gsap";
+import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { arrowBottomIcon } from "../../../assets/icons";
 
 const Hero: FC<Props> = () => {
+  const { scroll } = useLocomotiveScroll();
   const scrollBottom = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ const Hero: FC<Props> = () => {
   }, [scrollBottom]);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper data-scroll-section>
       <StyledLeftWrapper>
         <StyledHeadline>
           Lorem ipsum <span>dolor</span> site amet
@@ -47,7 +49,11 @@ const Hero: FC<Props> = () => {
         <Image src={imgSrc} layout="fill" objectFit="contain" />
       </StyledImageWrapper>
 
-      <StyledScrollBottom>
+      <StyledScrollBottom
+        onClick={() =>
+          scroll.scrollTo(document.querySelector("#about-me"), { offset: -200 })
+        }
+      >
         SCROLL{" "}
         <div ref={scrollBottom}>
           <Icon icon={arrowBottomIcon} />

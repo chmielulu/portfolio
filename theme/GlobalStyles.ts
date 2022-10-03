@@ -29,4 +29,8 @@ export const GlobalStyles = createGlobalStyle`
   p {
     line-height: 2;
   }
+  
+  .c-scrollbar_thumb {
+    background:  ${({ theme }) => theme.secondary};
+  }
 `;
