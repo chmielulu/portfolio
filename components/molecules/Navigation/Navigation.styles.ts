@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { rgba } from "polished";
 import { easeOutQuart } from "../../../theme/easings";
 
-export const StyledWrapper = styled.nav`
+export const StyledWrapper = styled.nav<{ $isSticky: boolean }>`
   position: fixed;
   width: 96%;
   top: 26px;
@@ -19,6 +19,17 @@ export const StyledWrapper = styled.nav`
   height: 70px;
   max-width: 1440px;
   z-index: 999999999;
+  transition: transform 0.5s ${easeOutQuart}, width 0.5s ${easeOutQuart},
+    border-radius 0.5s ${easeOutQuart}, border-color 0.5s ${easeOutQuart};
+
+  ${({ $isSticky }) =>
+    $isSticky &&
+    css`
+      transform: translate(-50%, -26px);
+      width: 100%;
+      border-radius: 0;
+      border-color: transparent;
+    `}
 `;
 
 export const StyledInnerWrapper = styled.div`

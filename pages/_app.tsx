@@ -2,24 +2,36 @@ import { GlobalStyles } from "../theme/GlobalStyles";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../theme/theme";
-import { LocomotiveScrollProvider } from "react-locomotive-scroll";
-import { useRef } from "react";
-import "locomotive-scroll/dist/locomotive-scroll.css";
+import { MainContextProvider } from "../context";
+import { useEffectOnce } from "../hooks/useEffectOnce";
+import ASScroll from "@ashthornton/asscroll";
+import { useState } from "react";
+import Navigation from "../components/molecules/Navigation/Navigation";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const container = useRef(null);
+  const [scroll, setScroll] = useState<ASScroll | null>(null);
+
+  useEffectOnce(() => {
+    const ASScroll = require("@ashthornton/asscroll");
+    const asscroll = new ASScroll({ disableRaf: true });
+    asscroll.enable();
+
+    setScroll(asscroll);
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <LocomotiveScrollProvider
-        options={{ smooth: true }}
-        containerRef={container}
-        watch={[]}
-      >
-        <div data-scroll-container ref={container}>
-          <Component {...pageProps} />
+      <MainContextProvider scroll={scroll}>
+        <header>
+          <Navigation />
+        </header>
+        <div asscroll-container="true">
+          <div>
+            <Component {...pageProps} />
+          </div>
         </div>
-      </LocomotiveScrollProvider>
+      </MainContextProvider>
     </ThemeProvider>
   );
 }

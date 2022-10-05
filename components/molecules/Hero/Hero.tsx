@@ -12,11 +12,12 @@ import {
 import imgSrc from "../../../assets/images/me.png";
 import Image from "next/image";
 import { gsap } from "gsap";
-import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { arrowBottomIcon } from "../../../assets/icons";
+import { scrollTo } from "../../../utils/scrollTo";
+import { useMainContext } from "../../../context";
 
 const Hero: FC<Props> = () => {
-  const { scroll } = useLocomotiveScroll();
+  const { scroll } = useMainContext();
   const scrollBottom = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,11 +50,7 @@ const Hero: FC<Props> = () => {
         <Image src={imgSrc} layout="fill" objectFit="contain" />
       </StyledImageWrapper>
 
-      <StyledScrollBottom
-        onClick={() =>
-          scroll.scrollTo(document.querySelector("#about-me"), { offset: -200 })
-        }
-      >
+      <StyledScrollBottom onClick={() => scrollTo(scroll, "#about-me", -200)}>
         SCROLL{" "}
         <div ref={scrollBottom}>
           <Icon icon={arrowBottomIcon} />

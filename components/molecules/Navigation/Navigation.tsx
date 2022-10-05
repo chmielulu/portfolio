@@ -10,27 +10,51 @@ import { Logo } from "../../atoms/Logo/Logo";
 import Button from "../../atoms/Button/Button";
 import { NAVIGATION_LIST } from "../../../config/navigation";
 import { HoverText } from "../../atoms/HoverText/HoverText";
+import Link from "next/link";
+import { useMainContext } from "../../../context";
+import { scrollTo } from "../../../utils/scrollTo";
 
-const Navigation: FC<Props> = () => (
-  <StyledWrapper>
-    <StyledInnerWrapper>
-      <Logo />
+const Navigation: FC<Props> = () => {
+  const { scroll, scrollY } = useMainContext();
 
-      <StyledRightWrapper>
-        <StyledList>
-          {NAVIGATION_LIST.map(({ name, target }) => (
-            <StyledItem key={name}>
-              <a href={target}>
-                <HoverText>{name}</HoverText>
-              </a>
-            </StyledItem>
-          ))}
-        </StyledList>
-        <Button>Kontakt</Button>
-      </StyledRightWrapper>
-    </StyledInnerWrapper>
-  </StyledWrapper>
-);
+  const isSticky = scrollY > 300;
+
+  return (
+    <StyledWrapper $isSticky={isSticky}>
+      <StyledInnerWrapper>
+        <Link href="/">
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo(scroll, "top");
+            }}
+          >
+            <Logo />
+          </a>
+        </Link>
+
+        <StyledRightWrapper>
+          <StyledList>
+            {NAVIGATION_LIST.map(({ name, target, offset }) => (
+              <StyledItem
+                key={name}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo(scroll, target, offset || -200);
+                }}
+              >
+                <a href={target}>
+                  <HoverText>{name}</HoverText>
+                </a>
+              </StyledItem>
+            ))}
+          </StyledList>
+          <Button>Kontakt</Button>
+        </StyledRightWrapper>
+      </StyledInnerWrapper>
+    </StyledWrapper>
+  );
+};
 
 interface Props {}
 

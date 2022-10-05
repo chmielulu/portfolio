@@ -1,8 +1,9 @@
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import React, { useRef, Suspense, FC, useEffect, useState } from "react";
 import * as THREE from "three";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { gsap } from "gsap";
+import { Mesh, VideoTexture } from "three";
+import { useGLTF } from "@react-three/drei";
 
 const Monitor: FC<Props> = ({
   texture,
@@ -10,12 +11,12 @@ const Monitor: FC<Props> = ({
   isHovering,
   isNameHovering,
 }) => {
-  const [videoTexture, setVideoTexture] = useState(null);
-  const wrapper = useRef(null);
-  const mesh = useRef(null);
+  const [video, setVideo] = useState<HTMLVideoElement | null>(null);
+  const [videoTexture, setVideoTexture] = useState<VideoTexture | null>(null);
+  const wrapper = useRef<Mesh>(null);
+  const mesh = useRef<Mesh>(null);
 
-  const model = useLoader(OBJLoader, "/monitor.obj");
-  const [image] = useLoader(THREE.TextureLoader, [texture]);
+  const { nodes } = useGLTF("/untitled.gltf");
 
   useEffect(() => {
     const newVideo = document.createElement("video");
@@ -23,26 +24,36 @@ const Monitor: FC<Props> = ({
     newVideo.muted = true;
     newVideo.loop = true;
     newVideo.autoplay = true;
-    newVideo.src = "test_video.mov";
+    newVideo.src = texture;
 
-    newVideo.play();
-
+    setVideo(newVideo);
     setVideoTexture(new THREE.VideoTexture(newVideo));
   }, []);
 
+  useEffect(() => {
+    if (isHovering) {
+      video?.play();
+    } else {
+      video?.pause();
+    }
+  }, [isHovering]);
+
   useFrame(() => {
+    if (!mesh.current || !wrapper.current) return;
+
     if (isHovering) {
       const { x, y } = coords;
 
       gsap.to(mesh.current.rotation, {
-        x: y * 0.001,
-        y: 2.7 + x * 0.0005,
+        x: -1.5 + y * 0.001,
+        y: x * 0.0005,
         ease: "easeInOutExpo",
       });
     } else {
       gsap.to(mesh.current.rotation, {
-        x: 0,
-        y: 2.7,
+        x: -1.5,
+        y: 0,
+        z: -0.4,
         ease: "easeInOutExpo",
       });
     }
@@ -70,15 +81,28 @@ const Monitor: FC<Props> = ({
       <directionalLight position={[0, 0, 5]} color="black" />
 
       <mesh ref={wrapper}>
-        <primitive
-          object={model.children[0]}
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={(nodes as any).Cube001.geometry}
+          material={(nodes as any).Cube001.material}
           position={[-1, 0, 0]}
-          scale={[1.4, 1.4, 0.05]}
+          scale={[-1.4, 0.05, 1.4]}
           ref={mesh}
-          rotation={[0, 2.7, 0]}
+          rotation={[2, 10, 0]}
         >
           <meshLambertMaterial map={videoTexture} />
-        </primitive>
+        </mesh>
+
+        {/*<primitive*/}
+        {/*  object={model}*/}
+        {/*  position={[-1, 0, 0]}*/}
+        {/*  scale={[1.4, 1.4, 0.05]}*/}
+        {/*  ref={mesh}*/}
+        {/*  rotation={[0, 2.7, 0]}*/}
+        {/*>*/}
+        {/*  <meshLambertMaterial map={videoTexture} />*/}
+        {/*</primitive>*/}
       </mesh>
     </Suspense>
   );

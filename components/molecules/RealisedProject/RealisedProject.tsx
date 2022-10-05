@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  MouseEventHandler,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { FC, MouseEventHandler, useState } from "react";
 import {
   StyledWrapper,
   StyledLeftWrapper,

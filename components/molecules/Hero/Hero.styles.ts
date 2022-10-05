@@ -9,6 +9,7 @@ export const StyledWrapper = styled.div`
   height: 100vh;
   justify-content: center;
   width: 90%;
+  position: relative;
 `;
 
 export const StyledImageWrapper = styled.div`
