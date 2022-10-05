@@ -118,7 +118,7 @@ const Home: NextPage = () => {
             icon: "travel-dynamic-gradient.png",
           },
         ]}
-        texture="osiedlemlawa.mov"
+        texture="osiedlemlawa.mp4"
       />
 
       <RealisedProject
@@ -138,7 +138,7 @@ const Home: NextPage = () => {
             icon: "travel-dynamic-gradient.png",
           },
         ]}
-        texture="marysdeweloper.mov"
+        texture="marysdeweloper.mp4"
       />
 
       <StyledPlug data-scroll-section id="portfolio-2">
