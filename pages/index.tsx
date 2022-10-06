@@ -4,13 +4,11 @@ import Hero from "../components/molecules/Hero/Hero";
 import AboutMe from "../components/molecules/AboutMe/AboutMe";
 import styled from "styled-components";
 import RealisedProject from "../components/molecules/RealisedProject/RealisedProject";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useEffect } from "react";
-import { useMainContext } from "../context";
 import OtherProjects from "../components/molecules/OtherProjects/OtherProjects";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useGsap } from "../hooks/useGsap";
+import { useEffect, useState } from "react";
+import Statistic from "../components/molecules/Statistic/Statistic";
+import Pricing from "../components/molecules/Pricing/Pricing";
 
 const StyledPlug = styled.h2`
   font-size: 4.8rem;
@@ -19,31 +17,12 @@ const StyledPlug = styled.h2`
 `;
 
 const Home: NextPage = () => {
-  const { scroll } = useMainContext();
+  const { gsap, scroll } = useGsap();
+  const [showCursor, setShowCursor] = useState<boolean>(true);
+
+  const handleRealisedProjectMouseEnter = () => setShowCursor(false);
 
   useEffect(() => {
-    if (!scroll) return;
-
-    gsap.ticker.add(scroll.update);
-    ScrollTrigger.defaults({
-      scroller: scroll.containerElement,
-    });
-    ScrollTrigger.scrollerProxy(scroll.containerElement, {
-      scrollTop(value) {
-        return arguments.length
-          ? (scroll.currentPos = value as number)
-          : scroll.currentPos;
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
-      },
-    });
-
     const el1 = document.querySelector("#portfolio > div");
     const el2 = document.querySelector("#portfolio-2 > div");
 
@@ -99,6 +78,8 @@ const Home: NextPage = () => {
           },
         ]}
         texture="test_video.mov"
+        showCursor={showCursor}
+        onMouseEnter={handleRealisedProjectMouseEnter}
       />
 
       <RealisedProject
@@ -119,6 +100,8 @@ const Home: NextPage = () => {
           },
         ]}
         texture="osiedlemlawa.mp4"
+        showCursor={showCursor}
+        onMouseEnter={handleRealisedProjectMouseEnter}
       />
 
       <RealisedProject
@@ -139,6 +122,8 @@ const Home: NextPage = () => {
           },
         ]}
         texture="marysdeweloper.mp4"
+        showCursor={showCursor}
+        onMouseEnter={handleRealisedProjectMouseEnter}
       />
 
       <StyledPlug data-scroll-section id="portfolio-2">
@@ -146,6 +131,8 @@ const Home: NextPage = () => {
       </StyledPlug>
 
       <OtherProjects />
+      <Statistic />
+      <Pricing />
     </>
   );
 };

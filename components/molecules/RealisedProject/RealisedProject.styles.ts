@@ -12,6 +12,7 @@ export const StyledWrapper = styled.article`
   backdrop-filter: blur(36px);
   display: flex;
   height: 800px;
+  position: relative;
 `;
 
 export const StyledLeftWrapper = styled.div``;
