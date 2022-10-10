@@ -9,6 +9,7 @@ import { useGsap } from "../hooks/useGsap";
 import { useEffect, useState } from "react";
 import Statistic from "../components/molecules/Statistic/Statistic";
 import Pricing from "../components/molecules/Pricing/Pricing";
+import Faq from "../components/molecules/Faq/Faq";
 
 const StyledPlug = styled.h2`
   font-size: 4.8rem;
@@ -133,6 +134,7 @@ const Home: NextPage = () => {
       <OtherProjects />
       <Statistic />
       <Pricing />
+      <Faq />
     </>
   );
 };
