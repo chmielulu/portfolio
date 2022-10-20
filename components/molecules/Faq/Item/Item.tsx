@@ -8,6 +8,7 @@ import {
 } from "./Item.styles";
 import maximizeIcon from "@iconify/icons-akar-icons/circle-plus";
 import minimizeIcon from "@iconify/icons-akar-icons/circle-minus";
+import { useMainContext } from "../../../../context";
 
 const Item: FC<Props> = ({
   index,
@@ -16,6 +17,7 @@ const Item: FC<Props> = ({
   question,
   answer,
 }) => {
+  const { scroll } = useMainContext();
   const [pHeight, setPHeight] = useState<number>(0);
   const p = useRef<HTMLParagraphElement>(null);
   const isActive = index === currentActive;
@@ -32,6 +34,10 @@ const Item: FC<Props> = ({
     } else {
       setCurrentActive(index);
     }
+
+    setTimeout(() => {
+      scroll?.resize();
+    }, 600);
   };
 
   return (

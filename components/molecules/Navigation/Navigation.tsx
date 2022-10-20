@@ -49,7 +49,14 @@ const Navigation: FC<Props> = () => {
               </StyledItem>
             ))}
           </StyledList>
-          <Button>Kontakt</Button>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo(scroll, "#contact", -200);
+            }}
+          >
+            Kontakt
+          </Button>
         </StyledRightWrapper>
       </StyledInnerWrapper>
     </StyledWrapper>

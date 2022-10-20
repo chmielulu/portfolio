@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import Statistic from "../components/molecules/Statistic/Statistic";
 import Pricing from "../components/molecules/Pricing/Pricing";
 import Faq from "../components/molecules/Faq/Faq";
+import Contact from "../components/molecules/Contact/Contact";
 
 const StyledPlug = styled.h2`
   font-size: 4.8rem;
@@ -135,6 +136,7 @@ const Home: NextPage = () => {
       <Statistic />
       <Pricing />
       <Faq />
+      <Contact />
     </>
   );
 };

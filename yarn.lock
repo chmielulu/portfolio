@@ -234,6 +234,27 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify/icons-el@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-el/-/icons-el-1.2.3.tgz#31d37135386956848e2fb41e60823fa3788f0c47"
+  integrity sha512-Y7r1ThFFvxL/BxqAqemXXvXl3NlC4du75H5mvcNN7E602iVVGRllehf7wJWvZgFdw/LRZZcvVMZm8C09vRvW2w==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify/icons-fluent@^1.2.17":
+  version "1.2.17"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-fluent/-/icons-fluent-1.2.17.tgz#b2060ad78d3d24a862dae239b949a6450306f3b4"
+  integrity sha512-nDVEOl7kcgWyTKiQbFrvP301+WcgSoF8BksiYlzLsQyzRT38HVfV5myr51vvKM3eUP+t113rwnI/FomXItDaZw==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify/icons-typcn@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-typcn/-/icons-typcn-1.2.2.tgz#472288c5a31e3c9e77e066cad9848aafdd03642c"
+  integrity sha512-cXwxzXUKe6hK73CTdRR386VDWrb6EcrID9sCQf5vj01L5b1XyQZF4ZXvKvJ1TU1SefhjdOIRH1/FI2fxVuyl8A==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/react@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@iconify/react/-/react-4.0.0.tgz#0e2238fec072bfca0f2b9b6ff9e60c721c4abf32"

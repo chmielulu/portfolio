@@ -7,6 +7,7 @@ import { useEffectOnce } from "../hooks/useEffectOnce";
 import ASScroll from "@ashthornton/asscroll";
 import { useState } from "react";
 import Navigation from "../components/molecules/Navigation/Navigation";
+import Footer from "../components/molecules/Footer/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [scroll, setScroll] = useState<ASScroll | null>(null);
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <div asscroll-container="true">
           <div>
             <Component {...pageProps} />
+            <Footer />
           </div>
         </div>
       </MainContextProvider>
