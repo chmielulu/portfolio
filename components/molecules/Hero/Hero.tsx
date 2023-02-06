@@ -36,22 +36,21 @@ const Hero: FC<Props> = () => {
     <StyledWrapper data-scroll-section>
       <StyledLeftWrapper>
         <StyledHeadline>
-          Lorem ipsum <span>dolor</span> site amet
+          Pomagam zaistnieć w <span>internecie</span>.
         </StyledHeadline>
         <StyledSubHeadline>Jakub Chmielewski</StyledSubHeadline>
         <StyledParagraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim
-          purus, suscipit sit amet enim sed, eleifend placerat metus. In
-          accumsan id velit ut iaculis. Pellentesque non justo a nunc
-          sollicitudin porta.
+          W mgnieniu oka zbuduję dla Ciebie idealną wizytówkę internetową,
+          pozwolę zarabiać na Twoim sklepie internetowym, czy stworzę
+          wyróżniającego się bloga.
         </StyledParagraph>
       </StyledLeftWrapper>
       <StyledImageWrapper>
-        <Image src={imgSrc} layout="fill" objectFit="contain" />
+        <Image src={imgSrc} layout="fill" />
       </StyledImageWrapper>
 
       <StyledScrollBottom onClick={() => scrollTo(scroll, "#about-me", -200)}>
-        SCROLL{" "}
+        PRZEWIŃ{" "}
         <div ref={scrollBottom}>
           <Icon icon={arrowBottomIcon} />
         </div>

@@ -59,12 +59,12 @@ const Home: NextPage = () => {
       <AboutMe />
 
       <StyledPlug data-scroll-section id="portfolio">
-        <div>I have created many interested projects...</div>
+        <div>Stworzyłem wiele ciekawych projektów...</div>
       </StyledPlug>
 
       <RealisedProject
         name="Strona firmowa - RendPro"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        description="Strona internetowa dla firmy w której obecnie pracuję. W tym projekcie zająłem się wszystkim - począwszy od projektu graficznego, modelu 3D rakiety oraz jej animacji i kończąc na zaprogramowaniu samej strony internetowej."
         properties={[
           {
             name: "Graphic Designer, Full-Stack Developer",
@@ -86,7 +86,7 @@ const Home: NextPage = () => {
 
       <RealisedProject
         name="Osiedle Mława"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        description="Strona internetowa dla inwestycji deweloperskiej. Wyróżniają ją przyjemne dla oka animacje oraz interaktywny podgląd dostępności mieszkań na osiedlu. Nie zabrakło oczywiście systemu CMS."
         properties={[
           {
             name: "Front-End Developer",
@@ -108,7 +108,7 @@ const Home: NextPage = () => {
 
       <RealisedProject
         name="Marys Deweloper"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        description="Strona internetowa dla firmy deweloperskiej. Animacje dopasowane do strony sprawiają, że jest ona na swój sposób wyjątkowa. Podpięty system CMS pozwala na elastyczne zmiany na stronie."
         properties={[
           {
             name: "Front-End Developer",
@@ -129,7 +129,7 @@ const Home: NextPage = () => {
       />
 
       <StyledPlug data-scroll-section id="portfolio-2">
-        <div>And a lot more...</div>
+        <div>I wiele, wiele więcej...</div>
       </StyledPlug>
 
       <OtherProjects />

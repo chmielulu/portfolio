@@ -17,15 +17,19 @@ const AboutMe: FC<Props> = () => (
       <Image src={secondImage} alt="" />
     </StyledImagesWrapper>
     <StyledParagraph>
-      Hi! I’m <b>Jakub Chmielewski</b>, a <b>Full-Stack Developer</b> working at{" "}
-      <b>RendPro</b>. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Etiam porta magna in commodo hendrerit. Sed volutpat purus ut dui
-      porttitor mollis. Phasellus iaculis, sem id auctor sodales, est lacus
-      semper nunc, sed fermentum lacus elit at arcu. Proin egestas efficitur
-      nisi, eget facilisis ante varius sed. Donec velit risus, euismod sed lorem
-      vel, volutpat tincidunt metus. Pellentesque purus nisi, pretium ut finibus
-      id, feugiat non justo. Sed id luctus turpis. Nunc sodales tristique
-      convallis.
+      Cześć, nazywam się <b>Jakub Chmielewski</b> i jestem{" "}
+      <b>specjalistą od Frontendu</b> (choć potrafię też pisać back-end,
+      aplikacje desktopowe i na telefony 😅). Obecnie pracuję w{" "}
+      <b>RendPro Limited jako Lead Front-End Developer</b>, a dodatkowo
+      przyjmuję zlecenia jako Freelancer. Z komputerami jestem związany od
+      dziecka, a w branży IT pracuję od 4 lat. Przez ten czas stworzyłem wiele
+      projektów i pomogłem wielu firmom zaistnieć w internecie. Programuję
+      głównie w <b>TypeScript i JavaScript</b>, choć znam też Go, Rust, C++ i
+      podstawy Asemblera x86. Oczywiście potrafię też HTML i CSS, ale tego nie
+      można zaliczyć do programowania 😃. Jeśli potrzebujesz strony
+      internetowej, sklepu internetowego, bloga, projektu graficznego,
+      oprogramowania dla swojej firmy lub aplikacji na telefon to trafiłeś
+      idealnie! <b>W mgnieniu oka zaspokoję Twoje potrzeby!</b>
     </StyledParagraph>
   </StyledWrapper>
 );

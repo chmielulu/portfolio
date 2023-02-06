@@ -13,15 +13,19 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledImageWrapper = styled.div`
-  height: 94%;
+  height: 374px;
+  width: 374px;
   position: relative;
-  aspect-ratio: 568 / 715;
-  margin-top: auto;
+
+  img {
+    border-radius: 50%;
+  }
 `;
 
 export const StyledLeftWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-right: 80px;
 `;
 
 export const StyledHeadline = styled.h1`
