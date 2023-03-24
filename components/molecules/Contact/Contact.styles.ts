@@ -8,11 +8,17 @@ import FileAttachment from "../../atoms/FileAttachment/FIleAttachment";
 export const StyledWrapper = styled.section`
   max-width: 1155px;
   margin: auto;
+  width: 90%;
 `;
 
 export const StyledInnerWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1180px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const StyledLeftWrapper = styled.div`
@@ -25,6 +31,7 @@ export const StyledRightWrapper = styled.div`
   padding: 56px;
   background: ${({ theme }) => rgba(theme.backgroundBlurred, 0.6)};
   backdrop-filter: blur(36px);
+  margin-left: 40px;
 `;
 
 export const StyledRadiosWrapper = styled.fieldset`
@@ -109,17 +116,18 @@ export const StyledInput = styled(Input)`
   margin-top: 35px;
 `;
 
-export const StyledTextarea = styled(Input).attrs(() => ({ forwardedAs: 'textarea'}))`
+export const StyledTextarea = styled(Input).attrs(() => ({
+  forwardedAs: "textarea",
+}))`
   height: 100px;
   margin-top: 35px;
-
 
   textarea {
     resize: none;
   }
-  
+
   span {
-    top: 20px!important;
+    top: 20px !important;
   }
 `;
 
@@ -133,7 +141,7 @@ export const StyledFileAttachment = styled(FileAttachment)`
 
 export const StyledInfo = styled.span`
   display: block;
-  color: ${({theme}) => theme.washLight};
+  color: ${({ theme }) => theme.washLight};
   font-size: 1.4rem;
   margin-top: 5px;
 `;

@@ -8,12 +8,21 @@ export const StyledWrapper = styled.div`
   background: ${({ theme }) => rgba(theme.backgroundBlurred, 0.6)};
   backdrop-filter: blur(36px);
   max-width: 600px;
+
+  @media (max-width: 1280px) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledImage = styled.img`
   width: 140px;
   height: 140px;
   margin-right: 30px;
+
+  @media (max-width: 1280px) {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
 `;
 
 export const StyledRightWrapper = styled.div``;

@@ -13,11 +13,13 @@ import { HoverText } from "../../atoms/HoverText/HoverText";
 import Link from "next/link";
 import { useMainContext } from "../../../context";
 import { scrollTo } from "../../../utils/scrollTo";
+import {useWindowSize} from "react-use";
 
 const Navigation: FC<Props> = () => {
+  const { width }  = useWindowSize();
   const { scroll, scrollY } = useMainContext();
 
-  const isSticky = scrollY > 300;
+  const isSticky = width <= 1024 ? true : scrollY > 300;
 
   return (
     <StyledWrapper $isSticky={isSticky}>

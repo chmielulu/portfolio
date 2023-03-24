@@ -5,8 +5,8 @@ import {
   StyledHeadline,
 } from "./SectionHeadline.styles";
 
-const SectionHeadline: FC<Props> = ({ headline, subHeadline }) => (
-  <StyledWrapper>
+const SectionHeadline: FC<Props> = ({ headline, subHeadline, className }) => (
+  <StyledWrapper className={className}>
     <StyledHeadline>{headline}</StyledHeadline>
     <StyledSubHeadline>{subHeadline}</StyledSubHeadline>
   </StyledWrapper>
@@ -15,6 +15,7 @@ const SectionHeadline: FC<Props> = ({ headline, subHeadline }) => (
 interface Props {
   headline: string;
   subHeadline: string;
+  className?: string;
 }
 
 export default SectionHeadline;

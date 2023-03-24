@@ -10,6 +10,16 @@ export const StyledWrapper = styled.div`
   justify-content: center;
   width: 90%;
   position: relative;
+
+
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    height: unset;
+    min-height: 100vh;
+    padding-top: 30px;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const StyledImageWrapper = styled.div`
@@ -20,12 +30,26 @@ export const StyledImageWrapper = styled.div`
   img {
     border-radius: 50%;
   }
+  
+  @media (max-width: 1024px) {
+    width: 300px;
+    height: 300px;
+  }
 `;
 
 export const StyledLeftWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 80px;
+  flex: 1;
+  
+  @media (max-width: 1024px) {
+    margin-right: 0;
+    align-items: center;
+    max-width: 600px;
+    margin-top: 60px;
+    flex: unset;
+  }
 `;
 
 export const StyledHeadline = styled.h1`
@@ -36,6 +60,12 @@ export const StyledHeadline = styled.h1`
 
   span {
     color: ${({ theme }) => theme.primary};
+  }
+  
+  @media (max-width: 1024px) {
+    text-align: center;
+    max-width: unset;
+    font-size: 5rem;
   }
 `;
 
@@ -52,6 +82,11 @@ export const StyledParagraph = styled.p`
   font-weight: 500;
   margin: 0;
   max-width: 472px;
+  
+  @media (max-width: 1024px) {
+    max-width: unset;
+    text-align: center;
+  }
 `;
 
 export const StyledScrollBottom = styled.div`
@@ -68,5 +103,9 @@ export const StyledScrollBottom = styled.div`
 
   svg {
     font-size: 2.8rem;
+  }
+  
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;

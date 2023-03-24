@@ -11,11 +11,25 @@ import Statistic from "../components/molecules/Statistic/Statistic";
 import Pricing from "../components/molecules/Pricing/Pricing";
 import Faq from "../components/molecules/Faq/Faq";
 import Contact from "../components/molecules/Contact/Contact";
+import SectionHeadline from "../components/atoms/SectionHeadline/SectionHeadline";
 
 const StyledPlug = styled.h2`
   font-size: 4.8rem;
   text-align: center;
   margin: 300px 0;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
+
+const StyledSectionHeadline = styled(SectionHeadline)`
+  margin-top: 120px;
+  margin-bottom: 80px;
+
+  @media (min-width: 1025px) {
+    display: none;
+  }
 `;
 
 const Home: NextPage = () => {
@@ -61,6 +75,11 @@ const Home: NextPage = () => {
       <StyledPlug data-scroll-section id="portfolio">
         <div>Stworzyłem wiele ciekawych projektów...</div>
       </StyledPlug>
+
+      <StyledSectionHeadline
+        headline="Portfolio"
+        subHeadline="Zrealizowane projekty"
+      />
 
       <RealisedProject
         name="Strona firmowa - RendPro"

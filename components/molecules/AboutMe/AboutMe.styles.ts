@@ -4,6 +4,10 @@ export const StyledWrapper = styled.section`
   margin: 200px auto;
   width: 90%;
   max-width: 1115px;
+  
+  @media (max-width: 1024px) {
+    margin: 80px auto;
+  }
 `;
 
 export const StyledImagesWrapper = styled.div`

@@ -6,6 +6,11 @@ export const StyledWrapper = styled.section`
   margin: 300px auto;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const StyledItem = styled.div`

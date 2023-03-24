@@ -13,6 +13,13 @@ export const StyledWrapper = styled.article`
   display: flex;
   height: 800px;
   position: relative;
+
+  @media (max-width: 1280px) {
+    flex-direction: column-reverse;
+    height: unset;
+    min-height: 800px;
+    align-items: flex-start;
+  }
 `;
 
 export const StyledLeftWrapper = styled.div``;
@@ -58,4 +65,8 @@ export const StyledPropertyIcon = styled.img`
 export const StyledCanvas = styled(Canvas)`
   flex: 1;
   height: 100%;
+
+  @media (max-width: 1280px) {
+    height: 460px;
+  }
 `;

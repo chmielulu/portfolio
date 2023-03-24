@@ -172,6 +172,7 @@ const RealisedProject: FC<Props> = ({
           </StyledProperty>
         ))}
       </StyledLeftWrapper>
+
       <StyledCanvas
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}

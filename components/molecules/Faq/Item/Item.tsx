@@ -18,7 +18,9 @@ const Item: FC<Props> = ({
   answer,
 }) => {
   const { scroll } = useMainContext();
+  const questionHeadline = useRef<HTMLHeadingElement>(null);
   const [pHeight, setPHeight] = useState<number>(0);
+  const [iHeight, setIHeight] = useState<number>(0);
   const p = useRef<HTMLParagraphElement>(null);
   const isActive = index === currentActive;
 
@@ -40,9 +42,32 @@ const Item: FC<Props> = ({
     }, 600);
   };
 
+  useEffect(() => {
+    if (!questionHeadline.current) return;
+
+    const getIHeight = () => {
+      const rects = questionHeadline.current?.getBoundingClientRect();
+      setIHeight(rects?.height || 0);
+    };
+
+    getIHeight();
+
+    window.addEventListener("resize", getIHeight);
+
+    return () => {
+      window.removeEventListener("resize", getIHeight);
+    };
+  }, []);
+
   return (
-    <StyledWrapper $isActive={isActive} $pHeight={pHeight}>
-      <StyledQuestion onClick={handleClick}>{question}</StyledQuestion>
+    <StyledWrapper
+      $isActive={isActive}
+      $pHeight={pHeight}
+      style={{ minHeight: `${iHeight + 60}px` }}
+    >
+      <StyledQuestion onClick={handleClick} ref={questionHeadline}>
+        {question}
+      </StyledQuestion>
       <StyledAnswer ref={p}>{answer}</StyledAnswer>
       <StyledButton onClick={handleClick}>
         <Icon icon={isActive ? minimizeIcon : maximizeIcon} />
