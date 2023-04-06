@@ -11,7 +11,6 @@ export const StyledWrapper = styled.div`
   width: 90%;
   position: relative;
 
-
   @media (max-width: 1024px) {
     flex-direction: column-reverse;
     height: unset;
@@ -30,10 +29,15 @@ export const StyledImageWrapper = styled.div`
   img {
     border-radius: 50%;
   }
-  
+
   @media (max-width: 1024px) {
     width: 300px;
     height: 300px;
+  }
+
+  @media (max-width: 720px) {
+    width: 200px;
+    height: 200px;
   }
 `;
 
@@ -42,7 +46,7 @@ export const StyledLeftWrapper = styled.div`
   flex-direction: column;
   margin-right: 80px;
   flex: 1;
-  
+
   @media (max-width: 1024px) {
     margin-right: 0;
     align-items: center;
@@ -61,11 +65,15 @@ export const StyledHeadline = styled.h1`
   span {
     color: ${({ theme }) => theme.primary};
   }
-  
+
   @media (max-width: 1024px) {
     text-align: center;
     max-width: unset;
     font-size: 5rem;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 4rem;
   }
 `;
 
@@ -82,7 +90,7 @@ export const StyledParagraph = styled.p`
   font-weight: 500;
   margin: 0;
   max-width: 472px;
-  
+
   @media (max-width: 1024px) {
     max-width: unset;
     text-align: center;
@@ -104,7 +112,7 @@ export const StyledScrollBottom = styled.div`
   svg {
     font-size: 2.8rem;
   }
-  
+
   @media (max-width: 1024px) {
     display: none;
   }

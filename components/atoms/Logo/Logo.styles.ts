@@ -7,4 +7,8 @@ export const StyledWrapper = styled.div`
   span {
     color: ${({ theme }) => theme.primary};
   }
+
+  @media (max-width: 720px) {
+    font-size: 1.8rem;
+  }
 `;

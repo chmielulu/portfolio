@@ -32,6 +32,16 @@ export const StyledRightWrapper = styled.div`
   background: ${({ theme }) => rgba(theme.backgroundBlurred, 0.6)};
   backdrop-filter: blur(36px);
   margin-left: 40px;
+
+  @media (max-width: 1180px) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 720px) {
+    width: 95%;
+    padding: 30px;
+    max-width: 500px;
+  }
 `;
 
 export const StyledRadiosWrapper = styled.fieldset`
@@ -45,12 +55,20 @@ export const StyledGroupName = styled.label`
   font-size: 2rem;
   font-weight: 800;
   margin: 0 0 30px;
+
+  @media (max-width: 720px) {
+    margin: 0 0 20px;
+  }
 `;
 
 export const StyledRadiosInnerWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+
+  @media (max-width: 720px) {
+    gap: 8px;
+  }
 `;
 
 export const StyledRadio = styled.label`
@@ -92,9 +110,24 @@ export const StyledHeadline = styled.h3`
   max-width: 440px;
   margin: 0 0 90px;
   line-height: 1.4;
+
+  @media (max-width: 1180px) {
+    display: none;
+  }
 `;
 
-export const StyledContactItemsWrapper = styled.div``;
+export const StyledContactItemsWrapper = styled.div`
+  @media (max-width: 1180px) {
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 720px) {
+    margin-bottom: 50px;
+  }
+`;
 
 export const StyledContactItem = styled.div`
   margin: 0 0 20px;
@@ -114,6 +147,14 @@ export const StyledInput = styled(Input)`
   }
 
   margin-top: 35px;
+
+  @media (max-width: 720px) {
+    :first-of-type {
+      margin-top: 40px;
+    }
+
+    margin-top: 25px;
+  }
 `;
 
 export const StyledTextarea = styled(Input).attrs(() => ({

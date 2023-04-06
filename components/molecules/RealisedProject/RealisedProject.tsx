@@ -12,10 +12,14 @@ import {
   StyledProperty,
   StyledPropertyIcon,
   StyledName,
+  StyledCanvasWrapper,
+  StyledBackground,
   StyledCanvas,
+  StyledRightFiller,
 } from "./RealisedProject.styles";
 import dynamic from "next/dynamic";
 import { useGsap } from "../../../hooks/useGsap";
+import Image from "../../atoms/Image/Image";
 
 const Monitor = dynamic(() => import("./Monitor/Monitor"), { suspense: true });
 
@@ -24,6 +28,7 @@ const RealisedProject: FC<Props> = ({
   description,
   properties,
   texture,
+  mobileImage,
   showCursor,
   onMouseEnter: onMouseRightEnter,
 }) => {
@@ -86,7 +91,7 @@ const RealisedProject: FC<Props> = ({
   };
 
   useEffect(() => {
-    if (!showCursor || !wrapper.current) {
+    if (!showCursor || !wrapper.current || window.innerWidth < 1025) {
       return;
     }
 
@@ -173,18 +178,25 @@ const RealisedProject: FC<Props> = ({
         ))}
       </StyledLeftWrapper>
 
-      <StyledCanvas
+      <StyledCanvasWrapper>
+        <StyledCanvas style={{ aspectRatio: "1385 / 800", overflow: "hidden" }}>
+          <Monitor
+            texture={texture}
+            isHovering={isHovering}
+            isNameHovering={isNameHovering}
+            coords={coords}
+          />
+        </StyledCanvas>
+      </StyledCanvasWrapper>
+
+      <StyledRightFiller
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         onMouseMove={onMouseMove}
       >
-        <Monitor
-          texture={texture}
-          isHovering={isHovering}
-          isNameHovering={isNameHovering}
-          coords={coords}
-        />
-      </StyledCanvas>
+        <Image src={mobileImage} alt={name} />
+      </StyledRightFiller>
+      <StyledBackground />
     </StyledWrapper>
   );
 };
@@ -196,6 +208,7 @@ interface Props {
   texture: string;
   showCursor?: boolean;
   onMouseEnter: () => void;
+  mobileImage: string;
 }
 
 export default RealisedProject;

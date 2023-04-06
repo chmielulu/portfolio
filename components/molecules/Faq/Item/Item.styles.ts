@@ -25,6 +25,14 @@ export const StyledQuestion = styled.h3`
   margin: 0 0 20px;
   cursor: pointer;
   max-width: 900px;
+
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 1.8rem;
+  }
 `;
 
 export const StyledAnswer = styled.p`
@@ -42,4 +50,8 @@ export const StyledButton = styled.button`
   transform: translateY(25%);
   font-size: 2.8rem;
   cursor: pointer;
+
+  @media (max-width: 720px) {
+    font-size: 2.2rem;
+  }
 `;

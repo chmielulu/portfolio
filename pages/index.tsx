@@ -3,15 +3,14 @@ import Head from "next/head";
 import Hero from "../components/molecules/Hero/Hero";
 import AboutMe from "../components/molecules/AboutMe/AboutMe";
 import styled from "styled-components";
-import RealisedProject from "../components/molecules/RealisedProject/RealisedProject";
 import OtherProjects from "../components/molecules/OtherProjects/OtherProjects";
 import { useGsap } from "../hooks/useGsap";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Statistic from "../components/molecules/Statistic/Statistic";
 import Pricing from "../components/molecules/Pricing/Pricing";
 import Faq from "../components/molecules/Faq/Faq";
 import Contact from "../components/molecules/Contact/Contact";
-import SectionHeadline from "../components/atoms/SectionHeadline/SectionHeadline";
+import RealisedProjectsSection from "../components/organisms/RealisedProjectsSection/RealisedProjectsSection";
 
 const StyledPlug = styled.h2`
   font-size: 4.8rem;
@@ -23,20 +22,8 @@ const StyledPlug = styled.h2`
   }
 `;
 
-const StyledSectionHeadline = styled(SectionHeadline)`
-  margin-top: 120px;
-  margin-bottom: 80px;
-
-  @media (min-width: 1025px) {
-    display: none;
-  }
-`;
-
 const Home: NextPage = () => {
   const { gsap, scroll } = useGsap();
-  const [showCursor, setShowCursor] = useState<boolean>(true);
-
-  const handleRealisedProjectMouseEnter = () => setShowCursor(false);
 
   useEffect(() => {
     const el1 = document.querySelector("#portfolio > div");
@@ -72,80 +59,11 @@ const Home: NextPage = () => {
 
       <AboutMe />
 
-      <StyledPlug data-scroll-section id="portfolio">
+      <StyledPlug data-scroll-section>
         <div>Stworzyłem wiele ciekawych projektów...</div>
       </StyledPlug>
 
-      <StyledSectionHeadline
-        headline="Portfolio"
-        subHeadline="Zrealizowane projekty"
-      />
-
-      <RealisedProject
-        name="Strona firmowa - RendPro"
-        description="Strona internetowa dla firmy w której obecnie pracuję. W tym projekcie zająłem się wszystkim - począwszy od projektu graficznego, modelu 3D rakiety oraz jej animacji i kończąc na zaprogramowaniu samej strony internetowej."
-        properties={[
-          {
-            name: "Graphic Designer, Full-Stack Developer",
-            icon: "magic-trick-dynamic-gradient.png",
-          },
-          {
-            name: "Typescript, Gatsby, Three.js",
-            icon: "flag-dynamic-gradient.png",
-          },
-          {
-            name: "RendPro Limited, United Kingdom",
-            icon: "travel-dynamic-gradient.png",
-          },
-        ]}
-        texture="test_video.mov"
-        showCursor={showCursor}
-        onMouseEnter={handleRealisedProjectMouseEnter}
-      />
-
-      <RealisedProject
-        name="Osiedle Mława"
-        description="Strona internetowa dla inwestycji deweloperskiej. Wyróżniają ją przyjemne dla oka animacje oraz interaktywny podgląd dostępności mieszkań na osiedlu. Nie zabrakło oczywiście systemu CMS."
-        properties={[
-          {
-            name: "Front-End Developer",
-            icon: "magic-trick-dynamic-gradient.png",
-          },
-          {
-            name: "Typescript, Gatsby",
-            icon: "flag-dynamic-gradient.png",
-          },
-          {
-            name: "RendPro Limited, United Kingdom",
-            icon: "travel-dynamic-gradient.png",
-          },
-        ]}
-        texture="osiedlemlawa.mp4"
-        showCursor={showCursor}
-        onMouseEnter={handleRealisedProjectMouseEnter}
-      />
-
-      <RealisedProject
-        name="Marys Deweloper"
-        description="Strona internetowa dla firmy deweloperskiej. Animacje dopasowane do strony sprawiają, że jest ona na swój sposób wyjątkowa. Podpięty system CMS pozwala na elastyczne zmiany na stronie."
-        properties={[
-          {
-            name: "Front-End Developer",
-            icon: "magic-trick-dynamic-gradient.png",
-          },
-          {
-            name: "Typescript, Gatsby",
-            icon: "flag-dynamic-gradient.png",
-          },
-          {
-            name: "RendPro Limited, United Kingdom",
-            icon: "travel-dynamic-gradient.png",
-          },
-        ]}
-        texture="marysdeweloper.mp4"
-        showCursor={showCursor}
-        onMouseEnter={handleRealisedProjectMouseEnter}
-      />
+      <RealisedProjectsSection />
 
       <StyledPlug data-scroll-section id="portfolio-2">
         <div>I wiele, wiele więcej...</div>

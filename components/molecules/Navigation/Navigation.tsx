@@ -1,25 +1,37 @@
-import React, { FC } from "react";
+import React, { FC, useRef, useState } from "react";
 import {
   StyledWrapper,
   StyledInnerWrapper,
   StyledList,
   StyledItem,
   StyledRightWrapper,
+  StyledButton,
+  StyledRightInnerWrapper,
 } from "./Navigation.styles";
+import { Spin as Hamburger } from "hamburger-react";
 import { Logo } from "../../atoms/Logo/Logo";
-import Button from "../../atoms/Button/Button";
 import { NAVIGATION_LIST } from "../../../config/navigation";
 import { HoverText } from "../../atoms/HoverText/HoverText";
 import Link from "next/link";
 import { useMainContext } from "../../../context";
 import { scrollTo } from "../../../utils/scrollTo";
-import {useWindowSize} from "react-use";
+import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
 
 const Navigation: FC<Props> = () => {
-  const { width }  = useWindowSize();
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const list = useRef(null);
   const { scroll, scrollY } = useMainContext();
+  const isSticky = scrollY > 300;
 
-  const isSticky = width <= 1024 ? true : scrollY > 300;
+  useOnClickOutside(list, (e) => {
+    if (
+      (e.target as HTMLDivElement)?.classList.contains("hamburger-react") ||
+      !!(e.target as HTMLDivElement)?.closest(".hamburger-react")
+    )
+      return;
+
+    setOpen(false);
+  });
 
   return (
     <StyledWrapper $isSticky={isSticky}>
@@ -35,31 +47,37 @@ const Navigation: FC<Props> = () => {
           </a>
         </Link>
 
-        <StyledRightWrapper>
-          <StyledList>
-            {NAVIGATION_LIST.map(({ name, target, offset }) => (
-              <StyledItem
-                key={name}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollTo(scroll, target, offset || -200);
-                }}
-              >
-                <a href={target}>
-                  <HoverText>{name}</HoverText>
-                </a>
-              </StyledItem>
-            ))}
-          </StyledList>
-          <Button
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo(scroll, "#contact", -200);
-            }}
-          >
-            Kontakt
-          </Button>
+        <StyledRightWrapper $isOpen={isOpen}>
+          <StyledRightInnerWrapper $isOpen={isOpen} ref={list}>
+            <StyledList>
+              {NAVIGATION_LIST.map(({ name, target, offset }) => (
+                <StyledItem
+                  key={name}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo(scroll, target, offset || -200);
+                    setOpen(false);
+                  }}
+                >
+                  <a href={target}>
+                    <HoverText>{name}</HoverText>
+                  </a>
+                </StyledItem>
+              ))}
+            </StyledList>
+            <StyledButton
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo(scroll, "#contact", -200);
+                setOpen(false);
+              }}
+            >
+              Kontakt
+            </StyledButton>
+          </StyledRightInnerWrapper>
         </StyledRightWrapper>
+
+        <Hamburger toggled={isOpen} toggle={setOpen} size={28} />
       </StyledInnerWrapper>
     </StyledWrapper>
   );

@@ -7,7 +7,7 @@ import {
 import SectionHeadline from "../../atoms/SectionHeadline/SectionHeadline";
 import firstImage from "../../../assets/images/about_me_1.png";
 import secondImage from "../../../assets/images/about_me_2.png";
-import Image from "next/image";
+import Image from "../../atoms/Image/Image";
 
 const AboutMe: FC<Props> = () => (
   <StyledWrapper data-scroll-section id="about-me">

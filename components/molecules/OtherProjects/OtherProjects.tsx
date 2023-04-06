@@ -3,6 +3,7 @@ import {
   StyledWrapper,
   StyledOtherProject,
   StyledOtherProjectWrapper,
+  StyledSectionHeadline,
 } from "./OtherProjects.styles";
 import otherProjectImageSrc1 from "../../../assets/images/other-project-1.png";
 import otherProjectImageSrc2 from "../../../assets/images/other-project-2.png";
@@ -23,6 +24,7 @@ const OtherProjects: FC<Props> = () => {
 
   return (
     <StyledWrapper>
+      <StyledSectionHeadline headline="Inne projekty" subHeadline="Portfolio" />
       {images.map((imageSrc, index) => (
         <StyledOtherProjectWrapper key={index}>
           <StyledOtherProject src={imageSrc} alt="" />

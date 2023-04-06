@@ -10,7 +10,7 @@ import {
   StyledScrollBottom,
 } from "./Hero.styles";
 import imgSrc from "../../../assets/images/me.png";
-import Image from "next/image";
+import Image from "../../atoms/Image/Image";
 import { gsap } from "gsap";
 import { arrowBottomIcon } from "../../../assets/icons";
 import { scrollTo } from "../../../utils/scrollTo";
@@ -46,7 +46,7 @@ const Hero: FC<Props> = () => {
         </StyledParagraph>
       </StyledLeftWrapper>
       <StyledImageWrapper>
-        <Image src={imgSrc} layout="fill" />
+        <Image src={imgSrc} layout="fill" alt="Jakub Chmielewski" />
       </StyledImageWrapper>
 
       <StyledScrollBottom onClick={() => scrollTo(scroll, "#about-me", -200)}>

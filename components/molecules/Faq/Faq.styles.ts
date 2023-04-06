@@ -6,7 +6,12 @@ export const StyledWrapper = styled.section`
   width: 90%;
 
   @media (max-width: 1024px) {
-    max-width: 600px;
+    max-width: 900px;
+    margin: 200px auto;
+  }
+
+  @media (max-width: 720px) {
+    margin: 100px auto;
   }
 `;
 

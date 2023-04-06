@@ -3,11 +3,11 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../theme/theme";
 import { MainContextProvider } from "../context";
-import { useEffectOnce } from "../hooks/useEffectOnce";
-import ASScroll from "@ashthornton/asscroll";
 import { useState } from "react";
 import Navigation from "../components/molecules/Navigation/Navigation";
 import Footer from "../components/molecules/Footer/Footer";
+import type ASScroll from "@ashthornton/asscroll";
+import { useEffectOnce } from "react-use";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [scroll, setScroll] = useState<ASScroll | null>(null);

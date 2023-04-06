@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import Image from "next/image";
+import Image from "../../atoms/Image/Image";
 import { easeOutQuart } from "../../../theme/easings";
+import SectionHeadline from "../../atoms/SectionHeadline/SectionHeadline";
 
 export const StyledWrapper = styled.section`
   width: 90%;
@@ -11,6 +12,12 @@ export const StyledWrapper = styled.section`
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(1, 1fr);
+    max-width: 720px;
+  }
+
+  @media (max-width: 720px) {
+    gap: 20px;
+    max-width: 600px;
   }
 `;
 
@@ -29,4 +36,22 @@ export const StyledOtherProject = styled(Image)`
   border-radius: 40px;
   transform: translateZ(0);
   overflow: hidden;
+
+  @media (max-width: 720px) {
+    border-radius: 20px;
+  }
+`;
+
+export const StyledSectionHeadline = styled(SectionHeadline)`
+  margin-top: 160px;
+  margin-bottom: 80px;
+
+  @media (min-width: 1025px) {
+    display: none;
+  }
+
+  @media (max-width: 720px) {
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
 `;

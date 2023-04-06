@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { darken, lighten } from "polished";
+import { lighten } from "polished";
 import { keyframes } from "styled-components";
 import { easeOutQuart } from "../../../theme/easings";
 
@@ -51,5 +51,9 @@ export const StyledWrapper = styled.button`
     opacity: 0;
     animation: ${rippleAnimation} 0.6s ease-out;
     transform-origin: center center;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 1.6rem;
   }
 `;

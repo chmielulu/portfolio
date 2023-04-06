@@ -10,10 +10,14 @@ export const StyledInnerWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 50px;
-  //
-  //@media (max-width: 1024px) {
-  //  display: flex;
-  //  flex-direction: column;
-  //  align-items: center;
-  //}
+
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 720px) {
+    gap: 25px;
+  }
 `;

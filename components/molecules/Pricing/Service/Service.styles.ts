@@ -12,6 +12,12 @@ export const StyledWrapper = styled.div`
   @media (max-width: 1280px) {
     flex-direction: column;
   }
+
+  @media (max-width: 720px) {
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+  }
 `;
 
 export const StyledImage = styled.img`
@@ -23,6 +29,12 @@ export const StyledImage = styled.img`
     margin-right: 0;
     margin-bottom: 30px;
   }
+
+  @media (max-width: 720px) {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const StyledRightWrapper = styled.div``;
@@ -31,6 +43,10 @@ export const StyledHeadline = styled.h3`
   font-size: 3.6rem;
   font-weight: 800;
   margin: 0 0 20px;
+
+  @media (max-width: 720px) {
+    font-size: 3rem;
+  }
 `;
 
 export const StyledDescription = styled.p`
@@ -41,4 +57,8 @@ export const StyledDescription = styled.p`
 export const StyledPricing = styled.div`
   font-weight: 700;
   font-size: 3rem;
+
+  @media (max-width: 720px) {
+    font-size: 2.4rem;
+  }
 `;

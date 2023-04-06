@@ -23,7 +23,7 @@ export const HoverText: FC<Props> = ({ children }) => {
   );
 
   useEffect(() => {
-    if (!firstText.current || !secondText.current) {
+    if (!firstText.current || !secondText.current || window.innerWidth < 1025) {
       return;
     }
 

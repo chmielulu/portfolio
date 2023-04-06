@@ -5,12 +5,21 @@ export const StyledWrapper = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 720px) {
+    margin: 0 0 70px;
+  }
 `;
 
 export const StyledHeadline = styled.h2`
   margin: 0;
   font-weight: 800;
   font-size: 4.8rem;
+  text-align: center;
+
+  @media (max-width: 720px) {
+    font-size: 3rem;
+  }
 `;
 
 export const StyledSubHeadline = styled.h3`
@@ -19,4 +28,8 @@ export const StyledSubHeadline = styled.h3`
   font-size: 2.4rem;
   font-weight: 700;
   color: ${({ theme }) => theme.washLight};
+
+  @media (max-width: 720px) {
+    font-size: 2rem;
+  }
 `;
