@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <header>
           <Navigation />
         </header>
-        <div asscroll-container="true">
+        <div asscroll-container="true" className="with-background">
           <div>
             <Component {...pageProps} />
             <Footer />

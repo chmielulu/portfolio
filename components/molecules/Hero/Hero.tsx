@@ -2,15 +2,14 @@ import React, { FC, useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import {
   StyledWrapper,
-  StyledImageWrapper,
+  StyledImage,
   StyledLeftWrapper,
   StyledSubHeadline,
   StyledHeadline,
   StyledParagraph,
   StyledScrollBottom,
 } from "./Hero.styles";
-import imgSrc from "../../../assets/images/me.png";
-import Image from "../../atoms/Image/Image";
+import imgSrc from "../../../assets/images/me.jpg";
 import { gsap } from "gsap";
 import { arrowBottomIcon } from "../../../assets/icons";
 import { scrollTo } from "../../../utils/scrollTo";
@@ -45,9 +44,7 @@ const Hero: FC<Props> = () => {
           wyróżniającego się bloga.
         </StyledParagraph>
       </StyledLeftWrapper>
-      <StyledImageWrapper>
-        <Image src={imgSrc} layout="fill" alt="Jakub Chmielewski" />
-      </StyledImageWrapper>
+      <StyledImage src={imgSrc} alt="Jakub Chmielewski" />
 
       <StyledScrollBottom onClick={() => scrollTo(scroll, "#about-me", -200)}>
         PRZEWIŃ{" "}

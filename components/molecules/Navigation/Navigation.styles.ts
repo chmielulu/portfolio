@@ -29,6 +29,7 @@ export const StyledWrapper = styled.nav<{ $isSticky: boolean }>`
       css`
         transform: translate(-50%, -26px);
         width: 100%;
+        max-width: unset;
         border-radius: 0;
         border-color: transparent;
       `}
@@ -69,7 +70,7 @@ export const StyledRightWrapper = styled.div<{ $isOpen: boolean }>`
     left: 0;
     top: 100%;
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 69px);
     background: ${({ theme }) => theme.backgroundBlurred};
     opacity: 0;
     pointer-events: none;
@@ -85,6 +86,10 @@ export const StyledRightWrapper = styled.div<{ $isOpen: boolean }>`
         opacity: 1;
         pointer-events: all;
       `};
+  }
+
+  @media (max-width: 720px) {
+    height: calc(100vh - 59px);
   }
 `;
 

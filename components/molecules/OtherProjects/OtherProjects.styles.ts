@@ -36,6 +36,8 @@ export const StyledOtherProject = styled(Image)`
   border-radius: 40px;
   transform: translateZ(0);
   overflow: hidden;
+  width: 100%;
+  height: auto;
 
   @media (max-width: 720px) {
     border-radius: 20px;

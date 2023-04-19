@@ -122,12 +122,17 @@ export const StyledRightFiller = styled.div`
   aspect-ratio: 800 / 630;
   z-index: 3;
 
+  img {
+    width: 100%;
+    height: auto;
+  }
+
   * {
     border-radius: 20px;
   }
 
   @media (min-width: 1025px) {
-    > * {
+    * {
       display: none !important;
     }
   }
@@ -138,7 +143,7 @@ export const StyledRightFiller = styled.div`
 `;
 
 export const StyledCanvas = styled(Canvas)`
-  pointer-events: none;
+  pointer-events: none !important;
 
   @media (max-width: 1024px) {
     display: none;

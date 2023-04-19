@@ -25,6 +25,7 @@ const RealisedProjectsSection = () => {
 
       <RealisedProject
         name="Strona firmowa - RendPro"
+        link="https://rend.pro"
         description="Strona internetowa dla firmy w której obecnie pracuję. W tym projekcie zająłem się wszystkim - począwszy od projektu graficznego, modelu 3D rakiety oraz jej animacji i kończąc na zaprogramowaniu samej strony internetowej."
         properties={[
           {
@@ -40,7 +41,7 @@ const RealisedProjectsSection = () => {
             icon: "travel-dynamic-gradient.png",
           },
         ]}
-        texture="test_video.mov"
+        texture="rendpro.mp4"
         mobileImage={require("../../../assets/images/rendpro.png")}
         showCursor={showCursor}
         onMouseEnter={handleRealisedProjectMouseEnter}
@@ -48,6 +49,7 @@ const RealisedProjectsSection = () => {
 
       <RealisedProject
         name="Osiedle Mława"
+        link="https://osiedlemlawa.pl"
         description="Strona internetowa dla inwestycji deweloperskiej. Wyróżniają ją przyjemne dla oka animacje oraz interaktywny podgląd dostępności mieszkań na osiedlu. Nie zabrakło oczywiście systemu CMS."
         properties={[
           {
@@ -71,6 +73,7 @@ const RealisedProjectsSection = () => {
 
       <RealisedProject
         name="Marys Deweloper"
+        link="https://marysdeweloper.pl"
         description="Strona internetowa dla firmy deweloperskiej. Animacje dopasowane do strony sprawiają, że jest ona na swój sposób wyjątkowa. Podpięty system CMS pozwala na elastyczne zmiany na stronie."
         properties={[
           {

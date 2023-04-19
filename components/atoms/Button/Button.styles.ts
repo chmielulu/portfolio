@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { lighten } from "polished";
 import { keyframes } from "styled-components";
 import { easeOutQuart } from "../../../theme/easings";
+import { Icon } from "@iconify/react";
 
-export const rippleAnimation = keyframes`
+const rippleAnimation = keyframes`
   0% {
     opacity: 0.6;
     transform: scale(0);
@@ -14,7 +15,7 @@ export const rippleAnimation = keyframes`
   }
 `;
 
-export const StyledWrapper = styled.button`
+export const StyledWrapper = styled.button<{ $disabled: boolean }>`
   background: ${({ theme }) => theme.secondary};
   border-radius: 12px;
   display: flex;
@@ -53,7 +54,77 @@ export const StyledWrapper = styled.button`
     transform-origin: center center;
   }
 
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      pointer-events: none;
+      cursor: default;
+    `};
+
   @media (max-width: 720px) {
     font-size: 1.6rem;
   }
 `;
+
+const loadingAnimation = keyframes`
+  0% {
+    transform: rotate(0) translate(-50%, -50%);
+  }
+  
+  100% {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+`;
+
+export const StyledInnerWrapper = styled.div<{ $isDisable: boolean }>`
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  ${({ $isDisable }) =>
+    $isDisable &&
+    css`
+      opacity: 0;
+      transform: scale(0.6);
+      pointer-events: none;
+    `}
+`;
+
+export const StyledIcon = styled(Icon)`
+  stroke: #fff !important;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: block;
+  transform-origin: top left;
+  font-size: 2.4rem;
+  animation: 1s ${loadingAnimation} linear infinite;
+`;
+
+export const StyledAfterLoading = styled.span<{
+  $isShow: boolean;
+}>`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  transition: transform 0.2s ${easeOutQuart}, opacity 0.2s ${easeOutQuart};
+  
+  ${({ $isShow }) =>
+    $isShow &&
+    css`
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    `}}
+`;
+
+export const StyledAfterLoadingIcon = styled(Icon)`
+  margin-right: 10px;
+`;
+
+export const StyledAfterLoadingMessage = styled.span``;

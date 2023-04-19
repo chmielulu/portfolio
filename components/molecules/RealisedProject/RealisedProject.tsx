@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  MouseEventHandler,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { FC } from "react";
 import {
   StyledWrapper,
   StyledLeftWrapper,
@@ -18,10 +12,10 @@ import {
   StyledRightFiller,
 } from "./RealisedProject.styles";
 import dynamic from "next/dynamic";
-import { useGsap } from "../../../hooks/useGsap";
 import Image from "../../atoms/Image/Image";
+import { useRealisedProject } from "./useRealisedProject";
 
-const Monitor = dynamic(() => import("./Monitor/Monitor"), { suspense: true });
+const Monitor = dynamic(() => import("./Monitor/Monitor"));
 
 const RealisedProject: FC<Props> = ({
   name,
@@ -30,125 +24,22 @@ const RealisedProject: FC<Props> = ({
   texture,
   mobileImage,
   showCursor,
+  link,
   onMouseEnter: onMouseRightEnter,
 }) => {
-  const [isHovering, setHovering] = useState<boolean>(false);
-  const [isNameHovering, setNameHovering] = useState<boolean>(false);
-  const [coords, setCoords] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
-  const [secondCoords, setSecondCoords] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
-  const { gsap } = useGsap();
-
-  const wrapper = useRef<HTMLDivElement>(null);
-
-  const onWrapperMouseMove: MouseEventHandler<HTMLDivElement> = ({
-    currentTarget,
-    clientX,
-    clientY,
-  }) => {
-    const rect = currentTarget.getBoundingClientRect();
-
-    setSecondCoords({
-      x: clientX - rect.left,
-      y: clientY - rect.top,
-    });
-  };
-
-  const onMouseEnter: MouseEventHandler<HTMLDivElement> = ({
-    clientX,
-    clientY,
-    currentTarget,
-  }) => {
-    setHovering(true);
-    onMouseRightEnter();
-
-    const rect = currentTarget.getBoundingClientRect();
-    setCoords({
-      x: clientX - rect.left - rect.width / 2,
-      y: clientY - rect.top - rect.height / 2,
-    });
-  };
-
-  const onMouseLeave: MouseEventHandler = (e) => {
-    setHovering(false);
-  };
-
-  const onMouseMove: MouseEventHandler = ({
-    clientX,
-    clientY,
-    currentTarget,
-  }) => {
-    const rect = currentTarget.getBoundingClientRect();
-    setCoords({
-      x: clientX - rect.left - rect.width / 2,
-      y: clientY - rect.top - rect.height / 2,
-    });
-  };
-
-  useEffect(() => {
-    if (!showCursor || !wrapper.current || window.innerWidth < 1025) {
-      return;
-    }
-
-    const cursor = wrapper.current.querySelector("#cursor");
-
-    const tl = gsap.timeline({
-      scrollTrigger: { trigger: wrapper.current, start: "top bottom" },
-      repeat: -1,
-      delay: 0.5,
-    });
-
-    tl.set(cursor, {
-      opacity: 0,
-      width: "42px",
-      height: "42px",
-      top: "15%",
-      left: "50%",
-      x: 0,
-      y: 0,
-    })
-      .to(
-        cursor,
-        {
-          opacity: 1,
-          ease: "Expo.easeOut",
-        },
-        0
-      )
-      .to(
-        cursor,
-        {
-          x: 200,
-          y: 270,
-          duration: 2,
-          ease: "Expo.easeOut",
-        },
-        1
-      )
-      .to(cursor, {
-        scale: 2,
-      })
-      .to(cursor, {
-        scale: 1,
-      })
-      .to(cursor, {
-        delay: 0.5,
-        opacity: 0,
-        ease: "Expo.easeOut",
-      });
-  }, [wrapper]);
+  const {
+    coords,
+    isHovering,
+    isNameHovering,
+    setNameHovering,
+    onMouseEnter,
+    onMouseMove,
+    wrapper,
+    onMouseLeave,
+  } = useRealisedProject(!!showCursor, onMouseRightEnter);
 
   return (
-    <StyledWrapper
-      data-scroll-section
-      ref={wrapper}
-      onMouseMove={onWrapperMouseMove}
-    >
+    <StyledWrapper data-scroll-section ref={wrapper}>
       {showCursor && (
         <img
           src="cursor.svg"
@@ -168,7 +59,9 @@ const RealisedProject: FC<Props> = ({
           onMouseEnter={() => setNameHovering(true)}
           onMouseLeave={() => setNameHovering(false)}
         >
-          {name}
+          <a href={link} rel="noreferrer noopener" target="_blank">
+            {name}
+          </a>
         </StyledName>
         <StyledParagraph>{description}</StyledParagraph>
         {properties.map(({ name, icon }) => (
@@ -203,6 +96,7 @@ const RealisedProject: FC<Props> = ({
 
 interface Props {
   name: string;
+  link: string;
   description: string;
   properties: { icon: string; name: string }[];
   texture: string;

@@ -102,6 +102,17 @@ export const StyledRadioName = styled.div`
   ${StyledRadioInput}:checked ~ & {
     background: ${({ theme }) => theme.primary};
   }
+
+  ${StyledRadioInput}:focus-visible ~ &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    border: 1px dashed white;
+    border-radius: 8px;
+  }
 `;
 
 export const StyledHeadline = styled.h3`
@@ -129,7 +140,7 @@ export const StyledContactItemsWrapper = styled.div`
   }
 `;
 
-export const StyledContactItem = styled.div`
+export const StyledContactItem = styled.a`
   margin: 0 0 20px;
   display: flex;
   align-items: center;
@@ -138,6 +149,10 @@ export const StyledContactItem = styled.div`
   svg {
     font-size: 2.4rem;
     margin: 0 20px 0 0;
+  }
+
+  :hover {
+    text-decoration: underline;
   }
 `;
 
@@ -160,7 +175,7 @@ export const StyledInput = styled(Input)`
 export const StyledTextarea = styled(Input).attrs(() => ({
   forwardedAs: "textarea",
 }))`
-  height: 100px;
+  height: 100px !important;
   margin-top: 35px;
 
   textarea {
@@ -185,4 +200,9 @@ export const StyledInfo = styled.span`
   color: ${({ theme }) => theme.washLight};
   font-size: 1.4rem;
   margin-top: 5px;
+`;
+
+export const StyledFormError = styled.span`
+  margin-top: 20px;
+  display: block;
 `;

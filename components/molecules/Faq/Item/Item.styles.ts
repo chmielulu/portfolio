@@ -4,18 +4,19 @@ import { easeOutQuart } from "../../../../theme/easings";
 export const StyledWrapper = styled.div<{
   $isActive: boolean;
   $pHeight: number;
+  $iHeight: number;
 }>`
   padding: 30px 50px 30px 0;
   border-bottom: 2px solid #505050;
   position: relative;
   overflow: hidden;
   transition: max-height 0.5s ${easeOutQuart};
-  max-height: 85px;
+  max-height: ${({ $iHeight }) => `${$iHeight + 60}px`};
 
-  ${({ $isActive, $pHeight }) =>
+  ${({ $isActive, $pHeight, $iHeight }) =>
     $isActive &&
     css`
-      max-height: calc(85px + ${$pHeight + 20}px);
+      max-height: ${80 + $iHeight + $pHeight}px;
     `};
 `;
 

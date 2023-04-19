@@ -1,10 +1,5 @@
-import { useFrame } from "@react-three/fiber";
-import React, { useRef, Suspense, FC, useEffect, useState } from "react";
-import * as THREE from "three";
-import { gsap } from "gsap";
-import { Mesh, VideoTexture } from "three";
-import { useGLTF } from "@react-three/drei";
-import { useWindowSize } from "react-use";
+import React, { Suspense, FC } from "react";
+import { useMonitor } from "./useMonitor";
 
 const getPosition = (width: number): [number, number, number] => {
   if (width < 1100) {
@@ -18,12 +13,12 @@ const getPosition = (width: number): [number, number, number] => {
 
 const getScale = (width: number): [number, number, number] => {
   if (width < 1100) {
-    return [-0.7, 0.04, 1];
+    return [-0.7, 0.04, 0.9];
   } else if (width < 1200) {
-    return [-0.8, 0.04, 1.2];
+    return [-0.8, 0.04, 1.0];
   }
 
-  return [-0.9, 0.05, 1.2];
+  return [-0.9, 0.05, 1.1];
 };
 
 const Monitor: FC<Props> = ({
@@ -32,118 +27,11 @@ const Monitor: FC<Props> = ({
   isHovering,
   isNameHovering,
 }) => {
-  const { width } = useWindowSize();
-  const [video, setVideo] = useState<HTMLVideoElement | null>(null);
-  const [videoTexture, setVideoTexture] = useState<VideoTexture | null>(null);
-  const wrapper = useRef<Mesh>(null);
-  const mesh = useRef<Mesh>(null);
-  const [isHoverOnSmallerDevices, setIsHoverOnSmallerDevices] =
-    useState<boolean>(false);
-
-  useEffect(() => {
-    if (isHovering && width <= 1280) {
-      setIsHoverOnSmallerDevices(true);
-    } else if (!isHovering && width <= 1280) {
-      setIsHoverOnSmallerDevices(false);
-    }
-  }, [width, isHovering]);
-
-  const { nodes } = useGLTF("/untitled.gltf");
-
-  useEffect(() => {
-    const newVideo = document.createElement("video");
-    newVideo.playsInline = true;
-    newVideo.muted = true;
-    newVideo.loop = true;
-    newVideo.autoplay = true;
-    newVideo.src = texture;
-
-    setVideo(newVideo);
-    setVideoTexture(new THREE.VideoTexture(newVideo));
-  }, []);
-
-  useEffect(() => {
-    if (isHovering) {
-      video?.play();
-    } else {
-      video?.pause();
-    }
-  }, [isHovering]);
-
-  useFrame(() => {
-    const tl = gsap.timeline();
-    if (!mesh.current || !wrapper.current) return;
-
-    if (isHovering) {
-      const { x, y } = coords;
-
-      gsap.to(mesh.current.rotation, {
-        x: -1.55 + y * 0.001,
-        y: x * 0.0005,
-        ease: "easeInOutExpo",
-      });
-    } else {
-      gsap.to(mesh.current.rotation, {
-        x: -1.55,
-        y: 0,
-        z: -0.6,
-        ease: "easeInOutExpo",
-      });
-    }
-
-    if (isHoverOnSmallerDevices) {
-      tl?.to(
-        wrapper.current.scale,
-        {
-          x: width < 1100 ? 2 : 1.6,
-          y: width < 1100 ? 2 : 1.6,
-          z: width < 1100 ? 2 : 1.6,
-          ease: "easeInOutExpo",
-        },
-        0
-      ).to(
-        wrapper.current.position,
-        {
-          x: width < 1100 ? -1.8 : -1,
-          ease: "easeInOutExpo",
-        },
-        0
-      );
-    } else if (!isHovering && width <= 1280) {
-      tl?.to(
-        wrapper.current.position,
-        {
-          x: 0,
-          ease: "easeInOutExpo",
-        },
-        0
-      ).to(
-        wrapper.current.scale,
-        {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "easeInOutExpo",
-        },
-        0
-      );
-    }
-
-    if (isNameHovering) {
-      gsap.to(wrapper.current.scale, {
-        x: 0.9,
-        y: 0.9,
-        z: 0.9,
-        ease: "easeInOutExpo",
-      });
-    } else {
-      gsap.to(wrapper.current.scale, {
-        x: 1,
-        y: 1,
-        z: 1,
-        ease: "easeInOutExpo",
-      });
-    }
+  const { width, nodes, wrapper, mesh, videoTexture } = useMonitor({
+    texture,
+    coords,
+    isHovering,
+    isNameHovering,
   });
 
   return (

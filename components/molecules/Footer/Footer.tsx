@@ -19,9 +19,13 @@ const Footer: FC<Props> = () => (
       <MiddleWrapper>
         <MadeWithLove>Made with 💖 from 🇵🇱</MadeWithLove>
         <SourceCode>
-          You can see the source code of this page{" "}
-          <a href="#" target="_blank" rel="noreferrer noopener">
-            here
+          Możesz zobaczyć kod źródłowy tej strony{" "}
+          <a
+            href="https://github.com/chmielulu/portfolio"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            tutaj
           </a>{" "}
           🥰
         </SourceCode>

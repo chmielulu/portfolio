@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "../../atoms/Image/Image";
 
 export const StyledWrapper = styled.div`
   padding-top: 100px;
@@ -21,14 +22,12 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const StyledImageWrapper = styled.div`
+export const StyledImage = styled(Image)`
   height: 374px;
   width: 374px;
   position: relative;
-
-  img {
-    border-radius: 50%;
-  }
+  border-radius: 50%;
+  object-fit: fill;
 
   @media (max-width: 1024px) {
     width: 300px;

@@ -36,15 +36,14 @@ const Navigation: FC<Props> = () => {
   return (
     <StyledWrapper $isSticky={isSticky}>
       <StyledInnerWrapper>
-        <Link href="/">
-          <a
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo(scroll, "top");
-            }}
-          >
-            <Logo />
-          </a>
+        <Link
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollTo(scroll, "top");
+          }}
+        >
+          <Logo />
         </Link>
 
         <StyledRightWrapper $isOpen={isOpen}>

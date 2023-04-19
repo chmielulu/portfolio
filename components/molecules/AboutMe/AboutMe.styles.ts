@@ -19,20 +19,22 @@ export const StyledImagesWrapper = styled.div`
   display: flex;
   gap: 30px;
 
-  > span:first-of-type {
+  > img:first-of-type {
     width: 70%;
+    height: auto;
     border-radius: 30px;
   }
 
-  > span:last-of-type {
+  > img:last-of-type {
     width: 30%;
+    height: auto;
     border-radius: 30px;
   }
 
   @media (max-width: 720px) {
     flex-direction: column;
-    > span:first-of-type,
-    > span:last-of-type {
+    > img:first-of-type,
+    > img:last-of-type {
       width: 100%;
       border-radius: 15px;
     }

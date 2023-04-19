@@ -16,9 +16,19 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.6rem;
     font-family: 'Raleway', sans-serif;
     background: ${({ theme }) => theme.background};
-    background: repeat-y url("background.jpg");
-    background-size: contain;
     color: ${({ theme }) => theme.foreground};
+  }
+  
+  .with-background {
+    background: url("background.jpg") no-repeat fixed;
+
+    @media (max-width: 1024px) {
+      background: url("background-1024.jpg") repeat-y;
+    }
+
+    @media (max-width: 500px) {
+      background: url("background-500.jpg") repeat-y;
+    }
   }
   
   a {

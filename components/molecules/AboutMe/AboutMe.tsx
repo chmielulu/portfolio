@@ -12,10 +12,21 @@ import Image from "../../atoms/Image/Image";
 const AboutMe: FC<Props> = () => (
   <StyledWrapper data-scroll-section id="about-me">
     <SectionHeadline headline="Kim jestem?" subHeadline="O mnie" />
-    <StyledImagesWrapper>
-      <Image src={firstImage} alt="" />
-      <Image src={secondImage} alt="" />
-    </StyledImagesWrapper>
+    {/*<StyledImagesWrapper>*/}
+    {/*  <Image*/}
+    {/*    src={firstImage}*/}
+    {/*    style={{ objectFit: "cover" }}*/}
+    {/*    placeholder="blur"*/}
+    {/*    alt=""*/}
+    {/*  />*/}
+    {/*  <Image*/}
+    {/*    src={secondImage}*/}
+    {/*    style={{ objectFit: "cover" }}*/}
+    {/*    placeholder="blur"*/}
+    {/*    alt=""*/}
+    {/*  />*/}
+    {/*</StyledImagesWrapper>*/}
+    {/*^ TODO: I need to take some pictures to post them here*/}
     <StyledParagraph>
       Cześć, nazywam się <b>Jakub Chmielewski</b> i jestem{" "}
       <b>specjalistą od Frontendu</b> (choć potrafię też pisać back-end,

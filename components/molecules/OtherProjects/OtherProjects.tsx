@@ -14,20 +14,22 @@ import otherProjectImageSrc6 from "../../../assets/images/other-project-6.png";
 
 const OtherProjects: FC<Props> = () => {
   const images = [
-    otherProjectImageSrc1,
-    otherProjectImageSrc2,
-    otherProjectImageSrc3,
-    otherProjectImageSrc4,
-    otherProjectImageSrc5,
-    otherProjectImageSrc6,
+    { src: otherProjectImageSrc1, href: "https://palacowapark.pl" },
+    { src: otherProjectImageSrc2, href: "https://mdwgroup.pl" },
+    { src: otherProjectImageSrc3, href: "https://osiedlepodmiastem.pl" },
+    { src: otherProjectImageSrc4, href: "https://nowa-farma.pl" },
+    { src: otherProjectImageSrc5, href: "https://time4house.com" },
+    { src: otherProjectImageSrc6, href: "https://olenkipark.pl" },
   ];
 
   return (
     <StyledWrapper>
       <StyledSectionHeadline headline="Inne projekty" subHeadline="Portfolio" />
-      {images.map((imageSrc, index) => (
+      {images.map((image, index) => (
         <StyledOtherProjectWrapper key={index}>
-          <StyledOtherProject src={imageSrc} alt="" />
+          <a href={image.href} rel="noreferrer noopener" target="_blank">
+            <StyledOtherProject src={image.src} alt="" />
+          </a>
         </StyledOtherProjectWrapper>
       ))}
     </StyledWrapper>
