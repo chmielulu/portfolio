@@ -44,7 +44,12 @@ const Hero: FC<Props> = () => {
           wyróżniającego się bloga.
         </StyledParagraph>
       </StyledLeftWrapper>
-      <StyledImage src={imgSrc} alt="Jakub Chmielewski" />
+      <StyledImage
+        src={imgSrc}
+        placeholder="blur"
+        quality={80}
+        alt="Jakub Chmielewski"
+      />
 
       <StyledScrollBottom onClick={() => scrollTo(scroll, "#about-me", -200)}>
         PRZEWIŃ{" "}

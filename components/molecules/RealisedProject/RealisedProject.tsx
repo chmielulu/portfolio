@@ -87,7 +87,7 @@ const RealisedProject: FC<Props> = ({
         onMouseLeave={onMouseLeave}
         onMouseMove={onMouseMove}
       >
-        <Image src={mobileImage} alt={name} />
+        <Image src={mobileImage} placeholder="blur" quality={80} alt={name} />
       </StyledRightFiller>
       <StyledBackground />
     </StyledWrapper>
