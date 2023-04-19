@@ -28,7 +28,12 @@ const OtherProjects: FC<Props> = () => {
       {images.map((image, index) => (
         <StyledOtherProjectWrapper key={index}>
           <a href={image.href} rel="noreferrer noopener" target="_blank">
-            <StyledOtherProject src={image.src} alt="" />
+            <StyledOtherProject
+              src={image.src}
+              quality={80}
+              placeholder="blur"
+              alt=""
+            />
           </a>
         </StyledOtherProjectWrapper>
       ))}
