@@ -35,7 +35,10 @@ MONGODB_URI=mongodb+srv://user:password@portfolio.site.mongodb.net/?retryWrites=
 yarn dev
 ```
 
-The site requires a UUID key to be generated and a MongoDB database to be configured, and then the data must be saved in an environment file.
+## TODO
+- English version
+- Blog
+
 
 ## License
 This repository is distributed under [GPL-3.0 license](https://github.com/chmielulu/portfolio/blob/main/LICENSE)
