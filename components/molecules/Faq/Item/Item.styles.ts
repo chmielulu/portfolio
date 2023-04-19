@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div<{
   $pHeight: number;
   $iHeight: number;
 }>`
-  padding: 30px 50px 30px 0;
+  padding: 30px 0;
   border-bottom: 2px solid #505050;
   position: relative;
   overflow: hidden;
@@ -26,6 +26,7 @@ export const StyledQuestion = styled.h3`
   margin: 0 0 20px;
   cursor: pointer;
   max-width: 900px;
+  padding-right: 50px;
 
   @media (max-width: 1024px) {
     font-size: 2rem;
@@ -38,7 +39,6 @@ export const StyledQuestion = styled.h3`
 
 export const StyledAnswer = styled.p`
   margin: 0;
-  max-width: 900px;
 
   @media (max-width: 1024px) {
     text-align: justify;
