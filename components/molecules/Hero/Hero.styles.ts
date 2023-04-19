@@ -20,6 +20,10 @@ export const StyledWrapper = styled.div`
     align-items: center;
     justify-content: center;
   }
+
+  @media (max-width: 720px) {
+    min-height: 700px;
+  }
 `;
 
 export const StyledImage = styled(Image)`

@@ -39,6 +39,10 @@ export const StyledQuestion = styled.h3`
 export const StyledAnswer = styled.p`
   margin: 0;
   max-width: 900px;
+
+  @media (max-width: 1024px) {
+    text-align: justify;
+  }
 `;
 
 export const StyledButton = styled.button`

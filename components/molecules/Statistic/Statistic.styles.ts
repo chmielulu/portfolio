@@ -40,7 +40,6 @@ export const StyledImage = styled.img`
   left: 50%;
   transform: translateX(-50%);
   top: 0;
-  z-index: -1;
   opacity: 0.4;
 
   @media (max-width: 720px) {
@@ -64,6 +63,8 @@ export const StyledContent = styled.p`
   font-size: 6.4rem;
   font-weight: 900;
   margin: 0 auto 60px auto;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 720px) {
     font-size: 4rem;
