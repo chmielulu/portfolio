@@ -54,7 +54,11 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Full-Stack Developer - Jakub Chmielewski</title>
+        <title>Jakub Chmielewski - Pomagam zaistnieć w internecie</title>
+        <meta
+          name="description"
+          content="Potrzebujesz idealnej wizytówki internetowej, sklepu, bloga lub aplikacji na telefon? Jakub Chmielewski - programista z wieloletnim doświadczeniem, stworzy to dla Ciebie w mgnieniu oka! Sprawdź moje portfolio!"
+        />
       </Head>
       <header>
         <Hero />
