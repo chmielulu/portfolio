@@ -4,13 +4,13 @@ import Hero from "../components/molecules/Hero/Hero";
 import AboutMe from "../components/molecules/AboutMe/AboutMe";
 import styled from "styled-components";
 import OtherProjects from "../components/molecules/OtherProjects/OtherProjects";
-import { useGsap } from "../hooks/useGsap";
+// import { useGsap } from "../hooks/useGsap";
 import Statistic from "../components/molecules/Statistic/Statistic";
 import Pricing from "../components/molecules/Pricing/Pricing";
 import Faq from "../components/molecules/Faq/Faq";
 import Contact from "../components/molecules/Contact/Contact";
 import RealisedProjectsSection from "../components/organisms/RealisedProjectsSection/RealisedProjectsSection";
-import { useMainContext } from "../context";
+// import { useMainContext } from "../context";
 
 const StyledPlug = styled.h2`
   font-size: 4.8rem;
@@ -23,8 +23,8 @@ const StyledPlug = styled.h2`
 `;
 
 const Home: NextPage = () => {
-  const { gsap, scroll } = useGsap();
-  const { width } = useMainContext();
+  // const { gsap, scroll } = useGsap();
+  // const { width } = useMainContext();
 
   // useEffect(() => {
   //   if (width < 1025) return;
