@@ -26,7 +26,7 @@ function Document() {
         <script
           defer
           data-domain="jakubprogramista.dev"
-          src="http://plausible.jacobprogrammer.dev/js/script.js"
+          src="https://plausible.jacobprogrammer.dev/js/script.js"
         ></script>
       </Head>
       <body className="with-background">
