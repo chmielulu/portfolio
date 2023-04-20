@@ -1,9 +1,6 @@
 import express from "express";
-import http from "http";
-import https from "https";
 import formHandler from "./handlers/form";
 import imageHandler from "./handlers/image";
-import fs from "fs/promises";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import path from "path";
@@ -28,53 +25,14 @@ async function main() {
   app.use(express.urlencoded({ limit: "10mb", extended: true }));
   app.use(cors());
 
-  if (process.env.NODE_ENV === "production") {
-    app.enable("trust proxy");
-    app.use((req, res, next) => {
-      if (!req.secure)
-        return res.redirect(`https://${req.headers.host}${req.url}`);
-
-      next();
-    });
-  }
-
   app.post("/form", formHandler);
   app.get("/image", imageHandler);
 
-  const htttPort = process.env.NODE_ENV === "production" ? 80 : 3005;
-  const httpServer = http.createServer(app);
+  const port = 3005;
 
-  httpServer.listen(htttPort, () => {
-    console.log(`HTTP Server listening on http://localhost:${htttPort}`);
+  app.listen(port, () => {
+    console.log(`Server listening on http://localhost:${port}`);
   });
-
-  if (process.env.NODE_ENV === "production") {
-    if (
-      !process.env.SSL_CERTIFICATE ||
-      !process.env.SSL_PRIVATE_KEY ||
-      !process.env.SSL_CHAIN
-    ) {
-      console.error(
-        "In production you have to declare SSL_PRIVATE_KEY, SSL_CERTIFICATE, SSL_CHAIN in .env file!"
-      );
-      return process.exit(1);
-    }
-
-    const privateKey = await fs.readFile(process.env.SSL_PRIVATE_KEY);
-    const certificate = await fs.readFile(process.env.SSL_CERTIFICATE);
-    const chain = await fs.readFile(process.env.SSL_CHAIN);
-
-    const credentials = {
-      key: privateKey,
-      cert: certificate,
-      ca: chain,
-    };
-
-    const httpsServer = https.createServer(credentials, app);
-    httpsServer.listen(443, () => {
-      console.log(`HTTPS Server listening on https://localhost:443`);
-    });
-  }
 }
 
 main();
