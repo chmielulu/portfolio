@@ -13,14 +13,9 @@ function Document() {
     <Html>
       <Head>
         <link rel="icon" href="favicon.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.bunny.net" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.bunny.net/css?family=raleway:400,500,600,700,800"
           rel="stylesheet"
         />
         <script
