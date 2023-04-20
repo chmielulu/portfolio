@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start -p 3001",
     "dev-form-server": "ts-node form-server/index.ts",
+    "build-form-server": "tsc --project form-server-tsconfig.json",
     "lint": "next lint"
   },
   "dependencies": {
