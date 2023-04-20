@@ -30,10 +30,12 @@ yarn install
 
 AUTH_TOKEN=73ba0a39-c40d-4df9-a5d7-e20c0a691119 
 MONGODB_URI=mongodb+srv://user:password@portfolio.site.mongodb.net/?retryWrites=true&w=majority
+NEXT_PUBLIC_FORM_SERVER_URI=http://localhost:3005
 ```
 3. Run site using terminal
 ```
-yarn dev
+yarn dev-form-server // Run server that handles the form
+yarn dev // Run Next.js Application
 ```
 
 ## TODO
