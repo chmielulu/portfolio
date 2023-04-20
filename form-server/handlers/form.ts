@@ -1,27 +1,37 @@
-import type { NextApiHandler } from "next";
+import type { Handler, Request } from "express";
 import sharp from "sharp";
 import path from "path";
 import { v4 as uuid } from "uuid";
-import mongoose from "mongoose";
-import { Form } from "../../models/Form";
+import { Form } from "../models/Form";
 
-const handler: NextApiHandler = async ({ body, method }, res) => {
-  await mongoose.connect(process.env.MONGODB_URI);
-
+const handler: Handler = async (
+  {
+    body,
+    method,
+  }: Request<
+    any,
+    any,
+    {
+      name?: string; // Required
+      mail?: string; // Required
+      message?: string; // Required
+      subject?: string; // Required
+      file?: string;
+    }
+  >,
+  res
+) => {
   if (method !== "POST") return;
-  const parsedBody = JSON.parse(body) as {
-    name: string;
-    mail: string;
-    message: string;
-    subject: string;
-    file?: string;
-  };
 
   let fileName;
 
-  if (parsedBody.file) {
+  if (!body.name || !body.mail || !body.message || !body.subject) {
+    return res.status(400).json({ err: "Input all required params" });
+  }
+
+  if (body.file) {
     const buffer = Buffer.from(
-      parsedBody.file.split(";base64,").pop() || "",
+      body.file.split(";base64,").pop() || "",
       "base64"
     );
     const image = sharp(buffer);
@@ -56,24 +66,16 @@ const handler: NextApiHandler = async ({ body, method }, res) => {
   }
 
   const formItem = new Form();
-  formItem.name = parsedBody.name;
-  formItem.mail = parsedBody.mail;
-  formItem.message = parsedBody.message;
-  formItem.subject = parsedBody.subject;
+  formItem.name = body.name;
+  formItem.mail = body.mail;
+  formItem.message = body.message;
+  formItem.subject = body.subject;
   formItem.file = fileName;
   formItem.date = new Date();
 
   await formItem.save();
 
   res.status(200).json({ data: "Success" });
-};
-
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: "10mb",
-    },
-  },
 };
 
 export default handler;

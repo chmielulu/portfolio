@@ -1,8 +1,11 @@
-import { NextApiHandler } from "next";
 import fs from "fs/promises";
 import path from "path";
+import type { Handler } from "express";
+import dotenv from "dotenv";
 
-const handler: NextApiHandler = async (req, res) => {
+dotenv.config({ path: path.join(process.cwd(), ".env") });
+
+const handler: Handler = async (req, res) => {
   if (req.method !== "GET" || req.query.auth !== process.env.AUTH_TOKEN)
     return res
       .status(403)

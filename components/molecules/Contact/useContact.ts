@@ -45,8 +45,11 @@ export const useContact = () => {
 
   const uploadFormData = (formData: UploadForm) =>
     new Promise((resolve, reject) => {
-      fetch("/api/form", {
+      fetch(`${process.env.NEXT_PUBLIC_FORM_SERVER_URI}/form`, {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           subject: formData.subject,
           name: formData.name,
