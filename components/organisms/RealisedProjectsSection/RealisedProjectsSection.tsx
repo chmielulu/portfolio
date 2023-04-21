@@ -37,7 +37,7 @@ const RealisedProjectsSection = () => {
             icon: "flag-dynamic-gradient.png",
           },
           {
-            name: "RendPro Limited, United Kingdom",
+            name: "RendPro Limited, Wielka Brytania",
             icon: "travel-dynamic-gradient.png",
           },
         ]}
@@ -61,7 +61,7 @@ const RealisedProjectsSection = () => {
             icon: "flag-dynamic-gradient.png",
           },
           {
-            name: "RendPro Limited, United Kingdom",
+            name: "RendPro Limited, Wielka Brytania",
             icon: "travel-dynamic-gradient.png",
           },
         ]}
@@ -85,7 +85,7 @@ const RealisedProjectsSection = () => {
             icon: "flag-dynamic-gradient.png",
           },
           {
-            name: "RendPro Limited, United Kingdom",
+            name: "RendPro Limited, Wielka Brytania",
             icon: "travel-dynamic-gradient.png",
           },
         ]}
