@@ -59,6 +59,18 @@ const Home: NextPage = () => {
           name="description"
           content="Potrzebujesz idealnej wizytówki internetowej, sklepu, bloga lub aplikacji na telefon? Jakub Chmielewski - programista z wieloletnim doświadczeniem, stworzy to dla Ciebie w mgnieniu oka! Sprawdź moje portfolio!"
         />
+        <meta
+          property="og:title"
+          content="Jakub Chmielewski - Pomagam zaistnieć w internecie"
+        />
+        <meta
+          property="og:description"
+          content="Potrzebujesz idealnej wizytówki internetowej, sklepu, bloga lub aplikacji na telefon? Jakub Chmielewski - programista z wieloletnim doświadczeniem, stworzy to dla Ciebie w mgnieniu oka! Sprawdź moje portfolio!"
+        />
+        <meta
+          property="og:image"
+          content="https://jakubprogramista.dev/ogimage.jpg"
+        />
       </Head>
       <header>
         <Hero />
