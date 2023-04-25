@@ -29,6 +29,7 @@ export const useContact = () => {
   const file = watch("file", null);
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isSent, setIsSent] = useState<boolean>(false);
+
   const readImage = (file: File) =>
     new Promise((resolve, reject) => {
       const reader = new FileReader();

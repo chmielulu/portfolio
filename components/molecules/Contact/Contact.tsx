@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import githubIcon from "@iconify/icons-akar-icons/github-fill";
 import phoneIcon from "@iconify/icons-el/phone-alt";
@@ -58,11 +58,11 @@ const Contact: FC<Props> = () => {
               <Icon icon={githubIcon} /> @chmielulu
             </StyledContactItem>
             <StyledContactItem
-              href="tel:+48887077904"
+              href="tel:+48786587218"
               target="_blank"
               rel="noopener"
             >
-              <Icon icon={phoneIcon} /> +48 887 077 904
+              <Icon icon={phoneIcon} /> +48 786 587 218
             </StyledContactItem>
             <StyledContactItem
               href="mailto:kontakt@jakubprogramista.pl"
