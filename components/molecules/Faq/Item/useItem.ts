@@ -1,4 +1,11 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import {
+  Dispatch,
+  MouseEventHandler,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useMainContext } from "../../../../context";
 
 export const useItem = (
@@ -13,7 +20,9 @@ export const useItem = (
   const p = useRef<HTMLParagraphElement>(null);
   const isActive = index === currentActive;
 
-  const handleClick = () => {
+  const handleClick: MouseEventHandler = (e) => {
+    e.preventDefault();
+
     if (index === currentActive) {
       setCurrentActive(-1);
     } else {

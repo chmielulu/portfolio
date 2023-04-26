@@ -10,7 +10,7 @@ import { ServerStyleSheet } from "styled-components";
 
 function Document() {
   return (
-    <Html>
+    <Html lang="pl">
       <Head>
         <link rel="icon" href="favicon.png" />
         <link rel="preconnect" href="https://fonts.bunny.net" />

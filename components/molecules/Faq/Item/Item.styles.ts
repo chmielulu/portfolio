@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { easeOutQuart } from "../../../../theme/easings";
 
-export const StyledWrapper = styled.div<{
+export const StyledWrapper = styled.details<{
   $isActive: boolean;
   $pHeight: number;
   $iHeight: number;
@@ -10,23 +10,27 @@ export const StyledWrapper = styled.div<{
   border-bottom: 2px solid #505050;
   position: relative;
   overflow: hidden;
-  transition: max-height 0.5s ${easeOutQuart};
-  max-height: ${({ $iHeight }) => `${$iHeight + 60}px`};
+  transition: height 0.5s ${easeOutQuart};
+  height: ${({ $iHeight }) => `${$iHeight + 60}px`};
 
   ${({ $isActive, $pHeight, $iHeight }) =>
     $isActive &&
     css`
-      max-height: ${80 + $iHeight + $pHeight}px;
+      height: ${80 + $iHeight + $pHeight}px;
     `};
 `;
 
-export const StyledQuestion = styled.h3`
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin: 0 0 20px;
+export const StyledQuestionWrapper = styled.summary`
   cursor: pointer;
   max-width: 900px;
   padding-right: 50px;
+  list-style: none;
+`;
+
+export const StyledQuestion = styled.h4`
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 0 0 20px;
 
   @media (max-width: 1024px) {
     font-size: 2rem;

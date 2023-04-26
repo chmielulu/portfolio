@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import {
   StyledWrapper,
   StyledButton,
+  StyledQuestionWrapper,
   StyledQuestion,
   StyledAnswer,
 } from "./Item.styles";
@@ -27,14 +28,15 @@ const Item: FC<Props> = ({
       $pHeight={pHeight}
       $iHeight={iHeight}
       style={{ minHeight: `${iHeight + 40}px` }}
+      open={isActive}
     >
-      <StyledQuestion onClick={handleClick} ref={questionHeadline}>
-        {question}
-      </StyledQuestion>
+      <StyledQuestionWrapper ref={questionHeadline}>
+        <StyledQuestion onClick={handleClick}>{question}</StyledQuestion>
+        <StyledButton onClick={handleClick}>
+          <Icon icon={isActive ? minimizeIcon : maximizeIcon} />
+        </StyledButton>
+      </StyledQuestionWrapper>
       <StyledAnswer ref={p}>{HtmlParser(answer)}</StyledAnswer>
-      <StyledButton onClick={handleClick}>
-        <Icon icon={isActive ? minimizeIcon : maximizeIcon} />
-      </StyledButton>
     </StyledWrapper>
   );
 };
