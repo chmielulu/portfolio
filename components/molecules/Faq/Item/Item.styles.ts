@@ -16,7 +16,11 @@ export const StyledWrapper = styled.details<{
   ${({ $isActive, $pHeight, $iHeight }) =>
     $isActive &&
     css`
-      height: ${80 + $iHeight + $pHeight}px;
+      height: unset;
+
+      @media (min-width: 1025px) {
+        height: ${80 + $iHeight + $pHeight}px;
+      }
     `};
 `;
 
@@ -25,6 +29,10 @@ export const StyledQuestionWrapper = styled.summary`
   max-width: 900px;
   padding-right: 50px;
   list-style: none;
+
+  ::-webkit-details-marker {
+    display: none;
+  }
 `;
 
 export const StyledQuestion = styled.h4`
