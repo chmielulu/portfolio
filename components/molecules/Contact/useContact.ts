@@ -46,19 +46,23 @@ export const useContact = () => {
 
   const uploadFormData = (formData: UploadForm) =>
     new Promise((resolve, reject) => {
-      fetch(`${process.env.NEXT_PUBLIC_FORM_SERVER_URI}/form`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          subject: formData.subject,
-          name: formData.name,
-          mail: formData.mail,
-          message: formData.message,
-          file: formData.file,
-        }),
-      })
+      fetch(
+        // ^TODO VPS EXPIRED
+        /*`${process.env.NEXT_PUBLIC_FORM_SERVER_URI}/form`*/ "https://formsubmit.co/ajax/kontakt@jakubprogramista.pl",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            subject: formData.subject,
+            name: formData.name,
+            mail: formData.mail,
+            message: formData.message,
+            file: formData.file,
+          }),
+        }
+      )
         .then((res) => {
           if (res.status !== 200) {
             reject(res.status);

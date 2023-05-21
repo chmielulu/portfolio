@@ -18,11 +18,12 @@ function Document() {
           href="https://fonts.bunny.net/css?family=raleway:400,500,600,700,800"
           rel="stylesheet"
         />
-        <script
-          defer
-          data-domain="jakubprogramista.dev"
-          src="https://plausible.jacobprogrammer.dev/js/script.js"
-        ></script>
+        {/* ^TODO VPS EXPIRED */}
+        {/*<script*/}
+        {/*  defer*/}
+        {/*  data-domain="jakubprogramista.dev"*/}
+        {/*  src="https://plausible.jacobprogrammer.dev/js/script.js"*/}
+        {/*></script>*/}
       </Head>
       <body className="with-background">
         <Main />
