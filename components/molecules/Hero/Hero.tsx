@@ -9,7 +9,7 @@ import {
   StyledParagraph,
   StyledScrollBottom,
 } from "./Hero.styles";
-import imgSrc from "../../../assets/images/me.jpg";
+import imgSrc from "../../../assets/images/me.png";
 import { gsap } from "gsap";
 import { arrowBottomIcon } from "../../../assets/icons";
 import { scrollTo } from "../../../utils/scrollTo";
