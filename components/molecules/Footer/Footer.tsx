@@ -14,7 +14,7 @@ const Footer: FC<Props> = () => (
       <CompanyInfo>
         Usługi Programistyczne - Jakub Chmielewski <br />
         NIP: 5981654607 <br />
-        ul. Rzepińska 5A/3 69-110 Kowalów
+        ul. Edmunda Potrzebowskiego 1/4 70-237 Szczecin
       </CompanyInfo>
       <MiddleWrapper>
         <MadeWithLove>Made with 💖 from 🇵🇱</MadeWithLove>
