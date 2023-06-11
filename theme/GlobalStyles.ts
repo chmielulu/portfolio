@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   .with-background {
-    background: url("background.jpg") no-repeat fixed;
+    background: url("background.jpg") repeat-y fixed;
 
     @media (max-width: 1024px) {
       background: url("background-1024.jpg") repeat-y;
