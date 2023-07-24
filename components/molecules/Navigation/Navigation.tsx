@@ -76,7 +76,12 @@ const Navigation: FC<Props> = () => {
           </StyledRightInnerWrapper>
         </StyledRightWrapper>
 
-        <Hamburger toggled={isOpen} toggle={setOpen} size={28} />
+        <Hamburger
+          toggled={isOpen}
+          toggle={setOpen}
+          size={28}
+          label={isOpen ? "Zamknij nawigację" : "Otwórz nawigację"}
+        />
       </StyledInnerWrapper>
     </StyledWrapper>
   );

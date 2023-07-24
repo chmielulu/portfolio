@@ -7,17 +7,13 @@ import {
   default as NextDocument,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import ModernizrScript from "../scripts/Modernizr";
 
 function Document() {
   return (
-    <Html lang="pl">
+    <Html lang="pl" className="no-js">
       <Head>
-        <link rel="icon" href="favicon.png" />
-        <link rel="preconnect" href="https://fonts.bunny.net" />
-        <link
-          href="https://fonts.bunny.net/css?family=raleway:400,500,600,700,800"
-          rel="stylesheet"
-        />
+        <link rel="icon" href="/favicon.png" />
         {/*^TODO VPS EXPIRED*/}
         {/*<script*/}
         {/*  defer*/}
@@ -27,6 +23,7 @@ function Document() {
       </Head>
       <body className="with-background">
         <Main />
+        <ModernizrScript />
         <NextScript />
       </body>
     </Html>

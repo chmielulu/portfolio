@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { rgba } from "polished";
+import Image from "../../../atoms/Image/Image";
 
 export const StyledWrapper = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const StyledImage = styled.img`
+export const StyledImage = styled(Image)`
   width: 140px;
   height: 140px;
   margin-right: 30px;

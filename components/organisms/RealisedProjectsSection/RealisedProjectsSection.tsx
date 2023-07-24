@@ -4,6 +4,12 @@ import {
   StyledWrapper,
   StyledSectionHeadline,
 } from "./RealisedProjectsSection.styles";
+import magicTrickDynamicGradient from "../../../assets/images/magic-trick-dynamic-gradient.png";
+import flagDynamicGradient from "../../../assets/images/flag-dynamic-gradient.png";
+import travelDynamicGradient from "../../../assets/images/travel-dynamic-gradient.png";
+import rendproImage from "../../../assets/images/rendpro.png";
+import osiedlemlawaImage from "../../../assets/images/osiedlemlawa.png";
+import marysdeweloperImage from "../../../assets/images/marydeweloper.png";
 
 const RealisedProjectsSection = () => {
   const [showCursor, setShowCursor] = useState<boolean>(true);
@@ -30,19 +36,19 @@ const RealisedProjectsSection = () => {
         properties={[
           {
             name: "Graphic Designer, Full-Stack Developer",
-            icon: "magic-trick-dynamic-gradient.png",
+            icon: magicTrickDynamicGradient,
           },
           {
             name: "Typescript, Gatsby, Three.js",
-            icon: "flag-dynamic-gradient.png",
+            icon: flagDynamicGradient,
           },
           {
             name: "RendPro Limited, Wielka Brytania",
-            icon: "travel-dynamic-gradient.png",
+            icon: travelDynamicGradient,
           },
         ]}
         texture="rendpro.mp4"
-        mobileImage={require("../../../assets/images/rendpro.png")}
+        mobileImage={rendproImage}
         showCursor={showCursor}
         onMouseEnter={handleRealisedProjectMouseEnter}
       />
@@ -54,19 +60,19 @@ const RealisedProjectsSection = () => {
         properties={[
           {
             name: "Front-End Developer",
-            icon: "magic-trick-dynamic-gradient.png",
+            icon: magicTrickDynamicGradient,
           },
           {
             name: "Typescript, Gatsby",
-            icon: "flag-dynamic-gradient.png",
+            icon: flagDynamicGradient,
           },
           {
             name: "RendPro Limited, Wielka Brytania",
-            icon: "travel-dynamic-gradient.png",
+            icon: travelDynamicGradient,
           },
         ]}
         texture="osiedlemlawa.mp4"
-        mobileImage={require("../../../assets/images/osiedlemlawa.png")}
+        mobileImage={osiedlemlawaImage}
         showCursor={showCursor}
         onMouseEnter={handleRealisedProjectMouseEnter}
       />
@@ -78,20 +84,20 @@ const RealisedProjectsSection = () => {
         properties={[
           {
             name: "Front-End Developer",
-            icon: "magic-trick-dynamic-gradient.png",
+            icon: magicTrickDynamicGradient,
           },
           {
             name: "Typescript, Gatsby",
-            icon: "flag-dynamic-gradient.png",
+            icon: flagDynamicGradient,
           },
           {
             name: "RendPro Limited, Wielka Brytania",
-            icon: "travel-dynamic-gradient.png",
+            icon: travelDynamicGradient,
           },
         ]}
         texture="marysdeweloper.mp4"
         showCursor={showCursor}
-        mobileImage={require("../../../assets/images/marydeweloper.png")}
+        mobileImage={marysdeweloperImage}
         onMouseEnter={handleRealisedProjectMouseEnter}
       />
     </StyledWrapper>

@@ -7,10 +7,11 @@ import {
   StyledHeadline,
   StyledImage,
 } from "./Service.styles";
+import type { StaticImageData } from "next/image";
 
 const Service: FC<Props> = ({ content, pricing, image, name }) => (
   <StyledWrapper>
-    <StyledImage src={image} alt="" />
+    <StyledImage src={image} alt="" width={140} />
     <StyledRightWrapper>
       <StyledHeadline>{name}</StyledHeadline>
       <StyledDescription>{content}</StyledDescription>
@@ -23,7 +24,7 @@ interface Props {
   name: string;
   content: string;
   pricing: string;
-  image: string;
+  image: StaticImageData;
 }
 
 export default Service;

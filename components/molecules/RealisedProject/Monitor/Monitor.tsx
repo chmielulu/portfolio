@@ -54,16 +54,6 @@ const Monitor: FC<Props> = ({
             >
               <meshLambertMaterial map={videoTexture} />
             </mesh>
-
-            {/*<primitive*/}
-            {/*  object={model}*/}
-            {/*  position={[-1, 0, 0]}*/}
-            {/*  scale={[1.4, 1.4, 0.05]}*/}
-            {/*  ref={mesh}*/}
-            {/*  rotation={[0, 2.7, 0]}*/}
-            {/*>*/}
-            {/*  <meshLambertMaterial map={videoTexture} />*/}
-            {/*</primitive>*/}
           </mesh>
         </>
       )}

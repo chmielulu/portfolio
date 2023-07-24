@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lighten } from "polished";
 
 export const StyledWrapper = styled.footer`
   margin-top: 110px;
@@ -50,7 +51,7 @@ export const MadeWithLove = styled.div`
 export const SourceCode = styled.div`
   a {
     font-weight: 700;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => lighten(0.2, theme.primary)};
 
     :hover {
       text-decoration: underline;

@@ -12,7 +12,7 @@ const Statistic: FC<Props> = () => (
   <StyledWrapper>
     {STATISTIC.map(({ name, content, image }) => (
       <StyledItem key={name}>
-        <StyledImage src={image} alt="" />
+        <StyledImage src={image} alt="" aria-hidden="true" width={200} />
         <StyledHeadline>{name}</StyledHeadline>
         <StyledContent>{content}</StyledContent>
       </StyledItem>

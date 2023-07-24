@@ -34,7 +34,7 @@ export const useMonitor = ({
     }
   }, [width, isHovering]);
 
-  const { nodes } = useGLTF("/untitled.gltf");
+  const { nodes } = useGLTF("/monitor.gltf");
 
   useEffect(() => {
     const newVideo = document.createElement("video");

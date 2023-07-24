@@ -19,15 +19,27 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.foreground};
   }
   
-  .with-background {
-    background: url("background.jpg") repeat-y fixed;
+  html.no-js .with-background, html.no-webp .with-background {
+    background: url("/background.jpg") repeat-y fixed;
 
     @media (max-width: 1024px) {
-      background: url("background-1024.jpg") repeat-y;
+      background: url("/background-1024.jpg") repeat-y;
     }
 
     @media (max-width: 500px) {
-      background: url("background-500.jpg") repeat-y;
+      background: url("/background-500.jpg") repeat-y;
+    }
+  }
+  
+  html.webp .with-background {
+    background: url("/background.webp") repeat-y fixed;
+    
+    @media (max-width: 1024px) {
+      background: url("/background-1024.webp") repeat-y;
+    }
+    
+    @media (max-width: 500px) {
+      background: url("/background-500.webp") repeat-y;
     }
   }
   

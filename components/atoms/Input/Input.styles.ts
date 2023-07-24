@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const StyledWrapper = styled.div<{ $isError?: boolean }>`
+export const StyledWrapper = styled.label<{ $isError?: boolean }>`
   display: block;
   position: relative;
   height: 36px;

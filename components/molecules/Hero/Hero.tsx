@@ -48,6 +48,7 @@ const Hero: FC<Props> = () => {
         src={imgSrc}
         placeholder="blur"
         quality={80}
+        width={374}
         alt="Jakub Chmielewski"
       />
 

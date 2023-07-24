@@ -13,12 +13,36 @@ import otherProjectImageSrc5 from "../../../assets/images/other-project-5.png";
 import otherProjectImageSrc6 from "../../../assets/images/other-project-6.png";
 
 const images = [
-  { src: otherProjectImageSrc1, href: "https://bgkinvestment.pl" },
-  { src: otherProjectImageSrc2, href: "https://palacowapark.pl" },
-  { src: otherProjectImageSrc3, href: "https://mdwgroup.pl" },
-  { src: otherProjectImageSrc4, href: "https://osiedlepodmiastem.pl" },
-  { src: otherProjectImageSrc5, href: "https://nowa-farma.pl" },
-  { src: otherProjectImageSrc6, href: "https://olenkipark.pl" },
+  {
+    src: otherProjectImageSrc1,
+    href: "https://bgkinvestment.pl",
+    alt: "BGK Investment",
+  },
+  {
+    src: otherProjectImageSrc2,
+    href: "https://palacowapark.pl",
+    alt: "Pałacowa Park",
+  },
+  {
+    src: otherProjectImageSrc3,
+    href: "https://mdwgroup.pl",
+    alt: "MDW Group",
+  },
+  {
+    src: otherProjectImageSrc4,
+    href: "https://osiedlepodmiastem.pl",
+    alt: "Osiedle Pod Miastem",
+  },
+  {
+    src: otherProjectImageSrc5,
+    href: "https://nowa-farma.pl",
+    alt: "Nowa Farma",
+  },
+  {
+    src: otherProjectImageSrc6,
+    href: "https://olenkipark.pl",
+    alt: "Oleńki Park",
+  },
 ];
 
 const OtherProjects: FC<Props> = () => (
@@ -31,7 +55,7 @@ const OtherProjects: FC<Props> = () => (
             src={image.src}
             quality={80}
             placeholder="blur"
-            alt=""
+            alt={image.alt}
           />
         </a>
       </StyledOtherProjectWrapper>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "../../atoms/Image/Image";
 
 export const StyledWrapper = styled.section`
   width: 90%;
@@ -33,7 +34,7 @@ export const StyledItem = styled.div`
   }
 `;
 
-export const StyledImage = styled.img`
+export const StyledImage = styled(Image)`
   width: 200px;
   height: 200px;
   position: absolute;

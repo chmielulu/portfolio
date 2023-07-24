@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { rgba } from "polished";
 import { easeOutQuart } from "../../../theme/easings";
 import { Canvas } from "@react-three/fiber";
+import Image from "../../atoms/Image/Image";
 
 export const StyledWrapper = styled.article`
   width: 90%;
@@ -95,7 +96,7 @@ export const StyledProperty = styled.div`
   }
 `;
 
-export const StyledPropertyIcon = styled.img`
+export const StyledPropertyIcon = styled(Image)`
   width: 60px;
   height: 60px;
   margin-right: 20px;

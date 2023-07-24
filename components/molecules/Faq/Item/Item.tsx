@@ -32,7 +32,10 @@ const Item: FC<Props> = ({
     >
       <StyledQuestionWrapper ref={questionHeadline}>
         <StyledQuestion onClick={handleClick}>{question}</StyledQuestion>
-        <StyledButton onClick={handleClick}>
+        <StyledButton
+          onClick={handleClick}
+          aria-label={isActive ? "Zwiń" : "Rowziń"}
+        >
           <Icon icon={isActive ? minimizeIcon : maximizeIcon} />
         </StyledButton>
       </StyledQuestionWrapper>

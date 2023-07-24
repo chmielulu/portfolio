@@ -14,6 +14,7 @@ import {
 import dynamic from "next/dynamic";
 import Image from "../../atoms/Image/Image";
 import { useRealisedProject } from "./useRealisedProject";
+import { StaticImageData } from "next/image";
 
 const Monitor = dynamic(() => import("./Monitor/Monitor"));
 
@@ -42,7 +43,7 @@ const RealisedProject: FC<Props> = ({
     <StyledWrapper data-scroll-section ref={wrapper}>
       {showCursor && (
         <img
-          src="cursor.svg"
+          src="/cursor.svg"
           alt=""
           aria-hidden="true"
           id="cursor"
@@ -66,7 +67,7 @@ const RealisedProject: FC<Props> = ({
         <StyledParagraph>{description}</StyledParagraph>
         {properties.map(({ name, icon }) => (
           <StyledProperty key={name}>
-            <StyledPropertyIcon src={icon} alt={name} /> {name}
+            <StyledPropertyIcon src={icon} alt={name} width={60} /> {name}
           </StyledProperty>
         ))}
       </StyledLeftWrapper>
@@ -98,11 +99,11 @@ interface Props {
   name: string;
   link: string;
   description: string;
-  properties: { icon: string; name: string }[];
+  properties: { icon: StaticImageData; name: string }[];
   texture: string;
   showCursor?: boolean;
   onMouseEnter: () => void;
-  mobileImage: string;
+  mobileImage: StaticImageData;
 }
 
 export default RealisedProject;
